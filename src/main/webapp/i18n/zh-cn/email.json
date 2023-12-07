@@ -1,0 +1,25 @@
+{
+  "approSysApp": {
+    "email": {
+      "home": {
+        "title": "Emails",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Email",
+        "createOrEditLabel": "创建或编辑 Email",
+        "notFound": "No Emails found"
+      },
+      "created": "Email {{ param }} 创建成功",
+      "updated": "Email {{ param }} 更新成功",
+      "deleted": "Email {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Email {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Email"
+      },
+      "id": "ID",
+      "email": "Email",
+      "applicationUser": "Application User"
+    }
+  }
+}

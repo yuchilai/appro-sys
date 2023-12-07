@@ -1,0 +1,44 @@
+{
+  "approSysApp": {
+    "workEntry": {
+      "home": {
+        "title": "Work Entries",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Work Entry",
+        "createOrEditLabel": "创建或编辑 Work Entry",
+        "notFound": "No Work Entries found"
+      },
+      "created": "Work Entry {{ param }} 创建成功",
+      "updated": "Work Entry {{ param }} 更新成功",
+      "deleted": "Work Entry {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Work Entry {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Work Entry"
+      },
+      "id": "ID",
+      "title": "Title",
+      "date": "Date",
+      "description": "Description",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "hours": "Hours",
+      "status": "Status",
+      "totalAmount": "Total Amount",
+      "comment": "Comment",
+      "attachments": "Attachments",
+      "fileName": "File Name",
+      "fileType": "File Type",
+      "fileSize": "File Size",
+      "approval": "Approval",
+      "hourlyRate": "Hourly Rate",
+      "projectService": "Project Service",
+      "owner": "Owner",
+      "invoice": "Invoice",
+      "clientCompany": "Client Company",
+      "approver": "Approver",
+      "tag": "Tag"
+    }
+  }
+}

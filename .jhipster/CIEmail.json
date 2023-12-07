@@ -1,0 +1,19 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207172314",
+  "dto": "mapstruct",
+  "entityTableName": "ci_email",
+  "fields": [
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "pattern"],
+      "fieldValidateRulesPattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    }
+  ],
+  "name": "CIEmail",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

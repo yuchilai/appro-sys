@@ -1,0 +1,11 @@
+id;issue_date;amount;status;payment_due_date;project_description
+1;2023-12-07;11846.82;PAID;2023-12-07;../fake-data/blob/hipster.txt
+2;2023-12-06;29260.56;PAID;2023-12-06;../fake-data/blob/hipster.txt
+3;2023-12-06;22520.98;CREATED;2023-12-07;../fake-data/blob/hipster.txt
+4;2023-12-07;19932.9;CANCELLED;2023-12-06;../fake-data/blob/hipster.txt
+5;2023-12-06;12133.77;CANCELLED;2023-12-07;../fake-data/blob/hipster.txt
+6;2023-12-07;16268.73;SENT;2023-12-07;../fake-data/blob/hipster.txt
+7;2023-12-07;27605.62;PAID;2023-12-06;../fake-data/blob/hipster.txt
+8;2023-12-07;23596.53;SENT;2023-12-06;../fake-data/blob/hipster.txt
+9;2023-12-06;5866.04;CREATED;2023-12-07;../fake-data/blob/hipster.txt
+10;2023-12-07;30723.05;VOID;2023-12-06;../fake-data/blob/hipster.txt

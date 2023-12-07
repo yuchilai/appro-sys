@@ -1,0 +1,54 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207171814",
+  "dto": "mapstruct",
+  "entityTableName": "approver",
+  "fields": [
+    {
+      "fieldName": "signature",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "assignedDate",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Approver",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "approval",
+      "otherEntityRelationshipName": "approver",
+      "relationshipName": "approval",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "title",
+      "otherEntityName": "workEntry",
+      "otherEntityRelationshipName": "approver",
+      "relationshipName": "approvedWorkEntries",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityName": "applicationUser",
+      "otherEntityRelationshipName": "approver",
+      "relationshipName": "applicationUser",
+      "relationshipSide": "right",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "clientCompany",
+      "otherEntityRelationshipName": "approver",
+      "relationshipName": "clientCompany",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

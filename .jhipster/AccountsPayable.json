@@ -1,0 +1,42 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207173014",
+  "dto": "mapstruct",
+  "entityTableName": "accounts_payable",
+  "fields": [
+    {
+      "fieldName": "deptName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "repLastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "repFirstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "repEmail",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "repPhoneNum",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isUsedForInvoice",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "AccountsPayable",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

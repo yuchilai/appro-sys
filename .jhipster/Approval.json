@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207172114",
+  "dto": "mapstruct",
+  "entityTableName": "approval",
+  "fields": [
+    {
+      "fieldName": "approved",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "approvalDateTime",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "comments",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "name": "Approval",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "approver",
+      "otherEntityRelationshipName": "approval",
+      "relationshipName": "approver",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

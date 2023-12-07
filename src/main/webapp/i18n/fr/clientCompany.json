@@ -1,0 +1,34 @@
+{
+  "approSysApp": {
+    "clientCompany": {
+      "home": {
+        "title": "ClientCompanies",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Client Company",
+        "createOrEditLabel": "Créer ou éditer un Client Company",
+        "notFound": "Aucun Client Company trouvé"
+      },
+      "created": "Un nouveau Client Company a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Client Company avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Client Company avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Client Company {{ id }} ?"
+      },
+      "detail": {
+        "title": "Client Company"
+      },
+      "id": "ID",
+      "name": "Name",
+      "invoicePrefix": "Invoice Prefix",
+      "hourlyRate": "Hourly Rate",
+      "projectService": "Project Service",
+      "contactInfo": "Contact Info",
+      "ccEmail": "Cc Email",
+      "ccPhoneNum": "Cc Phone Num",
+      "ccAddress": "Cc Address",
+      "workEntry": "Work Entry",
+      "accountsPayable": "Accounts Payable",
+      "approver": "Approver"
+    }
+  }
+}

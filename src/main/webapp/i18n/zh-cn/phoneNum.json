@@ -1,0 +1,25 @@
+{
+  "approSysApp": {
+    "phoneNum": {
+      "home": {
+        "title": "Phone Nums",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Phone Num",
+        "createOrEditLabel": "创建或编辑 Phone Num",
+        "notFound": "No Phone Nums found"
+      },
+      "created": "Phone Num {{ param }} 创建成功",
+      "updated": "Phone Num {{ param }} 更新成功",
+      "deleted": "Phone Num {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Phone Num {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Phone Num"
+      },
+      "id": "ID",
+      "phoneNum": "Phone Num",
+      "applicationUser": "Application User"
+    }
+  }
+}

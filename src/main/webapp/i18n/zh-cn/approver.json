@@ -1,0 +1,29 @@
+{
+  "approSysApp": {
+    "approver": {
+      "home": {
+        "title": "Approvers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Approver",
+        "createOrEditLabel": "创建或编辑 Approver",
+        "notFound": "No Approvers found"
+      },
+      "created": "Approver {{ param }} 创建成功",
+      "updated": "Approver {{ param }} 更新成功",
+      "deleted": "Approver {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Approver {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Approver"
+      },
+      "id": "ID",
+      "signature": "Signature",
+      "assignedDate": "Assigned Date",
+      "approval": "Approval",
+      "approvedWorkEntries": "Approved Work Entries",
+      "applicationUser": "Application User",
+      "clientCompany": "Client Company"
+    }
+  }
+}

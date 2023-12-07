@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207172614",
+  "dto": "mapstruct",
+  "entityTableName": "invoice",
+  "fields": [
+    {
+      "fieldName": "issueDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "BigDecimal",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "0"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "InvoiceStatus",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "CREATED,SENT,PAID,CANCELLED,VOID"
+    },
+    {
+      "fieldName": "paymentDueDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "projectDescription",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    }
+  ],
+  "name": "Invoice",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "invoiceBillingInfo",
+      "relationshipName": "invoiceBillingInfo",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityField": "title",
+      "otherEntityName": "workEntry",
+      "otherEntityRelationshipName": "invoice",
+      "relationshipName": "workEntry",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

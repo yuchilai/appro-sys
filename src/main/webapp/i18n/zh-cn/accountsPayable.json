@@ -1,0 +1,30 @@
+{
+  "approSysApp": {
+    "accountsPayable": {
+      "home": {
+        "title": "Accounts Payables",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Accounts Payable",
+        "createOrEditLabel": "创建或编辑 Accounts Payable",
+        "notFound": "No Accounts Payables found"
+      },
+      "created": "Accounts Payable {{ param }} 创建成功",
+      "updated": "Accounts Payable {{ param }} 更新成功",
+      "deleted": "Accounts Payable {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Accounts Payable {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Accounts Payable"
+      },
+      "id": "ID",
+      "deptName": "Dept Name",
+      "repLastName": "Rep Last Name",
+      "repFirstName": "Rep First Name",
+      "repEmail": "Rep Email",
+      "repPhoneNum": "Rep Phone Num",
+      "isUsedForInvoice": "Is Used For Invoice",
+      "clientCompany": "Client Company"
+    }
+  }
+}

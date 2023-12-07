@@ -1,0 +1,30 @@
+{
+  "approSysApp": {
+    "contactInfo": {
+      "home": {
+        "title": "Contact Infos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Contact Info",
+        "createOrEditLabel": "创建或编辑 Contact Info",
+        "notFound": "No Contact Infos found"
+      },
+      "created": "Contact Info {{ param }} 创建成功",
+      "updated": "Contact Info {{ param }} 更新成功",
+      "deleted": "Contact Info {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Contact Info {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Contact Info"
+      },
+      "id": "ID",
+      "positsion": "Positsion",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "ciEmail": "Ci Email",
+      "ciPhoneNum": "Ci Phone Num",
+      "ciAddress": "Ci Address",
+      "clientCompany": "Client Company"
+    }
+  }
+}

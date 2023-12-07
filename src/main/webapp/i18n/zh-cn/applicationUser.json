@@ -1,0 +1,33 @@
+{
+  "approSysApp": {
+    "applicationUser": {
+      "home": {
+        "title": "Application Users",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Application User",
+        "createOrEditLabel": "创建或编辑 Application User",
+        "notFound": "No Application Users found"
+      },
+      "created": "Application User {{ param }} 创建成功",
+      "updated": "Application User {{ param }} 更新成功",
+      "deleted": "Application User {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Application User {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Application User"
+      },
+      "id": "ID",
+      "invoiceGap": "Invoice Gap",
+      "theme": "Theme",
+      "isOnline": "Is Online",
+      "internalUser": "Internal User",
+      "ownedWorkEntries": "Owned Work Entries",
+      "email": "Email",
+      "phoneNum": "Phone Num",
+      "address": "Address",
+      "tag": "Tag",
+      "approver": "Approver"
+    }
+  }
+}

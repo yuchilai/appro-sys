@@ -1,0 +1,19 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207171514",
+  "dto": "mapstruct",
+  "entityTableName": "cc_email",
+  "fields": [
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "pattern"],
+      "fieldValidateRulesPattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    }
+  ],
+  "name": "CCEmail",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

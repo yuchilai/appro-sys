@@ -1,0 +1,30 @@
+{
+  "approSysApp": {
+    "accountsPayable": {
+      "home": {
+        "title": "Accounts Payables",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Accounts Payable",
+        "createOrEditLabel": "Create or edit a Accounts Payable",
+        "notFound": "No Accounts Payables found"
+      },
+      "created": "A new Accounts Payable is created with identifier {{ param }}",
+      "updated": "A Accounts Payable is updated with identifier {{ param }}",
+      "deleted": "A Accounts Payable is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Accounts Payable {{ id }}?"
+      },
+      "detail": {
+        "title": "Accounts Payable"
+      },
+      "id": "ID",
+      "deptName": "Dept Name",
+      "repLastName": "Rep Last Name",
+      "repFirstName": "Rep First Name",
+      "repEmail": "Rep Email",
+      "repPhoneNum": "Rep Phone Num",
+      "isUsedForInvoice": "Is Used For Invoice",
+      "clientCompany": "Client Company"
+    }
+  }
+}

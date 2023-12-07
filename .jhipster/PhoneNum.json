@@ -1,0 +1,18 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207171314",
+  "dto": "mapstruct",
+  "entityTableName": "phone_num",
+  "fields": [
+    {
+      "fieldName": "phoneNum",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "PhoneNum",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

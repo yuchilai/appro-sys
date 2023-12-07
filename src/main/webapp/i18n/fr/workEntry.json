@@ -1,0 +1,44 @@
+{
+  "approSysApp": {
+    "workEntry": {
+      "home": {
+        "title": "WorkEntries",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Work Entry",
+        "createOrEditLabel": "Créer ou éditer un Work Entry",
+        "notFound": "Aucun Work Entry trouvé"
+      },
+      "created": "Un nouveau Work Entry a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Work Entry avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Work Entry avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Work Entry {{ id }} ?"
+      },
+      "detail": {
+        "title": "Work Entry"
+      },
+      "id": "ID",
+      "title": "Title",
+      "date": "Date",
+      "description": "Description",
+      "startTime": "Start Time",
+      "endTime": "End Time",
+      "hours": "Hours",
+      "status": "Status",
+      "totalAmount": "Total Amount",
+      "comment": "Comment",
+      "attachments": "Attachments",
+      "fileName": "File Name",
+      "fileType": "File Type",
+      "fileSize": "File Size",
+      "approval": "Approval",
+      "hourlyRate": "Hourly Rate",
+      "projectService": "Project Service",
+      "owner": "Owner",
+      "invoice": "Invoice",
+      "clientCompany": "Client Company",
+      "approver": "Approver",
+      "tag": "Tag"
+    }
+  }
+}

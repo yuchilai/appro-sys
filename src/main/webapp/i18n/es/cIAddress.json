@@ -1,0 +1,31 @@
+{
+  "approSysApp": {
+    "cIAddress": {
+      "home": {
+        "title": "CI Addresses",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo CI Address",
+        "createOrEditLabel": "Crear o editar CI Address",
+        "notFound": "Ningún CI Addresses encontrado"
+      },
+      "created": "Un nuevo CI Address ha sido creado con el identificador {{ param }}",
+      "updated": "Un CI Address ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un CI Address ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar CI Address {{ id }}?"
+      },
+      "detail": {
+        "title": "CI Address"
+      },
+      "id": "ID",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "state": "State",
+      "county": "County",
+      "zipCode": "Zip Code",
+      "country": "Country",
+      "contactInfo": "Contact Info"
+    }
+  }
+}

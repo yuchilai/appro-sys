@@ -1,0 +1,30 @@
+{
+  "approSysApp": {
+    "contactInfo": {
+      "home": {
+        "title": "ContactInfos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Contact Info",
+        "createOrEditLabel": "Créer ou éditer un Contact Info",
+        "notFound": "Aucun Contact Info trouvé"
+      },
+      "created": "Un nouveau Contact Info a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Contact Info avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Contact Info avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Contact Info {{ id }} ?"
+      },
+      "detail": {
+        "title": "Contact Info"
+      },
+      "id": "ID",
+      "positsion": "Positsion",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "ciEmail": "Ci Email",
+      "ciPhoneNum": "Ci Phone Num",
+      "ciAddress": "Ci Address",
+      "clientCompany": "Client Company"
+    }
+  }
+}

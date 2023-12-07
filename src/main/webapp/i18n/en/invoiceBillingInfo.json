@@ -1,0 +1,35 @@
+{
+  "approSysApp": {
+    "invoiceBillingInfo": {
+      "home": {
+        "title": "Invoice Billing Infos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Invoice Billing Info",
+        "createOrEditLabel": "Create or edit a Invoice Billing Info",
+        "notFound": "No Invoice Billing Infos found"
+      },
+      "created": "A new Invoice Billing Info is created with identifier {{ param }}",
+      "updated": "A Invoice Billing Info is updated with identifier {{ param }}",
+      "deleted": "A Invoice Billing Info is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Invoice Billing Info {{ id }}?"
+      },
+      "detail": {
+        "title": "Invoice Billing Info"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastname": "Lastname",
+      "email": "Email",
+      "phoneNum": "Phone Num",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "state": "State",
+      "county": "County",
+      "zipCode": "Zip Code",
+      "country": "Country",
+      "invoice": "Invoice"
+    }
+  }
+}

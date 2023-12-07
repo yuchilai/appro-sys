@@ -1,0 +1,19 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207171114",
+  "dto": "mapstruct",
+  "entityTableName": "email",
+  "fields": [
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "pattern"],
+      "fieldValidateRulesPattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    }
+  ],
+  "name": "Email",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

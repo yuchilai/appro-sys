@@ -1,0 +1,10 @@
+{
+  "approSysApp": {
+    "WorkStatus": {
+      "null": "",
+      "SUBMITTED": "SUBMITTED",
+      "APPROVED": "APPROVED",
+      "REJECTED": "REJECTED"
+    }
+  }
+}

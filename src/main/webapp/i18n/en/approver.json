@@ -1,0 +1,29 @@
+{
+  "approSysApp": {
+    "approver": {
+      "home": {
+        "title": "Approvers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Approver",
+        "createOrEditLabel": "Create or edit a Approver",
+        "notFound": "No Approvers found"
+      },
+      "created": "A new Approver is created with identifier {{ param }}",
+      "updated": "A Approver is updated with identifier {{ param }}",
+      "deleted": "A Approver is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Approver {{ id }}?"
+      },
+      "detail": {
+        "title": "Approver"
+      },
+      "id": "ID",
+      "signature": "Signature",
+      "assignedDate": "Assigned Date",
+      "approval": "Approval",
+      "approvedWorkEntries": "Approved Work Entries",
+      "applicationUser": "Application User",
+      "clientCompany": "Client Company"
+    }
+  }
+}
