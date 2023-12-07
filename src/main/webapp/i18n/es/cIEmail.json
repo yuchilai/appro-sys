@@ -1,0 +1,25 @@
+{
+  "approSysApp": {
+    "cIEmail": {
+      "home": {
+        "title": "CI Emails",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo CI Email",
+        "createOrEditLabel": "Crear o editar CI Email",
+        "notFound": "Ningún CI Emails encontrado"
+      },
+      "created": "Un nuevo CI Email ha sido creado con el identificador {{ param }}",
+      "updated": "Un CI Email ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un CI Email ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar CI Email {{ id }}?"
+      },
+      "detail": {
+        "title": "CI Email"
+      },
+      "id": "ID",
+      "email": "Email",
+      "contactInfo": "Contact Info"
+    }
+  }
+}

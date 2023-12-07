@@ -1,0 +1,48 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207172214",
+  "dto": "mapstruct",
+  "entityTableName": "contact_info",
+  "fields": [
+    {
+      "fieldName": "positsion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ContactInfo",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "email",
+      "otherEntityName": "cIEmail",
+      "relationshipName": "ciEmail",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "phoneNum",
+      "otherEntityName": "cIPhoneNum",
+      "relationshipName": "ciPhoneNum",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "cIAddress",
+      "relationshipName": "ciAddress",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,25 @@
+{
+  "approSysApp": {
+    "phoneNum": {
+      "home": {
+        "title": "Phone Nums",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Phone Num",
+        "createOrEditLabel": "Create or edit a Phone Num",
+        "notFound": "No Phone Nums found"
+      },
+      "created": "A new Phone Num is created with identifier {{ param }}",
+      "updated": "A Phone Num is updated with identifier {{ param }}",
+      "deleted": "A Phone Num is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Phone Num {{ id }}?"
+      },
+      "detail": {
+        "title": "Phone Num"
+      },
+      "id": "ID",
+      "phoneNum": "Phone Num",
+      "applicationUser": "Application User"
+    }
+  }
+}

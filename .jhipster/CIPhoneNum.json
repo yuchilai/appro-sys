@@ -1,0 +1,18 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207172414",
+  "dto": "mapstruct",
+  "entityTableName": "ci_phone_num",
+  "fields": [
+    {
+      "fieldName": "phoneNum",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "CIPhoneNum",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

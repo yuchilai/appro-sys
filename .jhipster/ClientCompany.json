@@ -1,0 +1,86 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207171414",
+  "dto": "mapstruct",
+  "entityTableName": "client_company",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "invoicePrefix",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ClientCompany",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "hourlyRate",
+      "relationshipName": "hourlyRate",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "projectService",
+      "relationshipName": "projectService",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "lastName",
+      "otherEntityName": "contactInfo",
+      "relationshipName": "contactInfo",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "email",
+      "otherEntityName": "cCEmail",
+      "relationshipName": "ccEmail",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "phoneNum",
+      "otherEntityName": "cCPhoneNum",
+      "relationshipName": "ccPhoneNum",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "cCAddress",
+      "relationshipName": "ccAddress",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "workEntry",
+      "otherEntityRelationshipName": "clientCompany",
+      "relationshipName": "workEntry",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "deptName",
+      "otherEntityName": "accountsPayable",
+      "relationshipName": "accountsPayable",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "approver",
+      "otherEntityRelationshipName": "clientCompany",
+      "relationshipName": "approver",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,0 +1,25 @@
+{
+  "approSysApp": {
+    "cIPhoneNum": {
+      "home": {
+        "title": "CIPhoneNums",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau CI Phone Num",
+        "createOrEditLabel": "Créer ou éditer un CI Phone Num",
+        "notFound": "Aucun CI Phone Num trouvé"
+      },
+      "created": "Un nouveau CI Phone Num a été créé avec l'identifiant {{ param }}",
+      "updated": "Le CI Phone Num avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le CI Phone Num avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le CI Phone Num {{ id }} ?"
+      },
+      "detail": {
+        "title": "CI Phone Num"
+      },
+      "id": "ID",
+      "phoneNum": "Phone Num",
+      "contactInfo": "Contact Info"
+    }
+  }
+}

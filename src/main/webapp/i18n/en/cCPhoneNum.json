@@ -1,0 +1,25 @@
+{
+  "approSysApp": {
+    "cCPhoneNum": {
+      "home": {
+        "title": "CC Phone Nums",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new CC Phone Num",
+        "createOrEditLabel": "Create or edit a CC Phone Num",
+        "notFound": "No CC Phone Nums found"
+      },
+      "created": "A new CC Phone Num is created with identifier {{ param }}",
+      "updated": "A CC Phone Num is updated with identifier {{ param }}",
+      "deleted": "A CC Phone Num is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete CC Phone Num {{ id }}?"
+      },
+      "detail": {
+        "title": "CC Phone Num"
+      },
+      "id": "ID",
+      "phoneNum": "Phone Num",
+      "clientCompany": "Client Company"
+    }
+  }
+}

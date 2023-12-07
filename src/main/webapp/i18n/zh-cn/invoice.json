@@ -1,0 +1,30 @@
+{
+  "approSysApp": {
+    "invoice": {
+      "home": {
+        "title": "Invoices",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Invoice",
+        "createOrEditLabel": "创建或编辑 Invoice",
+        "notFound": "No Invoices found"
+      },
+      "created": "Invoice {{ param }} 创建成功",
+      "updated": "Invoice {{ param }} 更新成功",
+      "deleted": "Invoice {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Invoice {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Invoice"
+      },
+      "id": "ID",
+      "issueDate": "Issue Date",
+      "amount": "Amount",
+      "status": "Status",
+      "paymentDueDate": "Payment Due Date",
+      "projectDescription": "Project Description",
+      "invoiceBillingInfo": "Invoice Billing Info",
+      "workEntry": "Work Entry"
+    }
+  }
+}

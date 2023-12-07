@@ -1,0 +1,34 @@
+{
+  "approSysApp": {
+    "clientCompany": {
+      "home": {
+        "title": "Client Companies",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Client Company",
+        "createOrEditLabel": "建立或編輯 Client Company",
+        "notFound": "No Client Companies found"
+      },
+      "created": "新的 Client Company 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Client Company 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Client Company 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Client Company {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Client Company"
+      },
+      "id": "ID",
+      "name": "Name",
+      "invoicePrefix": "Invoice Prefix",
+      "hourlyRate": "Hourly Rate",
+      "projectService": "Project Service",
+      "contactInfo": "Contact Info",
+      "ccEmail": "Cc Email",
+      "ccPhoneNum": "Cc Phone Num",
+      "ccAddress": "Cc Address",
+      "workEntry": "Work Entry",
+      "accountsPayable": "Accounts Payable",
+      "approver": "Approver"
+    }
+  }
+}

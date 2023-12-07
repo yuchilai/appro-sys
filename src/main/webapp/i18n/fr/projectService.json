@@ -1,0 +1,30 @@
+{
+  "approSysApp": {
+    "projectService": {
+      "home": {
+        "title": "ProjectServices",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Project Service",
+        "createOrEditLabel": "Créer ou éditer un Project Service",
+        "notFound": "Aucun Project Service trouvé"
+      },
+      "created": "Un nouveau Project Service a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Project Service avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Project Service avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Project Service {{ id }} ?"
+      },
+      "detail": {
+        "title": "Project Service"
+      },
+      "id": "ID",
+      "name": "Name",
+      "fee": "Fee",
+      "description": "Description",
+      "dayLength": "Day Length",
+      "extra": "Extra",
+      "workEntry": "Work Entry",
+      "clientCompany": "Client Company"
+    }
+  }
+}

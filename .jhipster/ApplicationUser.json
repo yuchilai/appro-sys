@@ -1,0 +1,78 @@
+{
+  "applications": "*",
+  "changelogDate": "20231207171014",
+  "dto": "mapstruct",
+  "entityTableName": "application_user",
+  "fields": [
+    {
+      "fieldName": "invoiceGap",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "-1"
+    },
+    {
+      "fieldName": "theme",
+      "fieldType": "THEME",
+      "fieldValues": "AUTO,DARK,LIGHT"
+    },
+    {
+      "fieldName": "isOnline",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "ApplicationUser",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "user",
+      "relationshipName": "internalUser",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-one",
+      "relationshipWithBuiltInEntity": true
+    },
+    {
+      "otherEntityName": "workEntry",
+      "otherEntityRelationshipName": "owner",
+      "relationshipName": "ownedWorkEntries",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "email",
+      "otherEntityName": "email",
+      "relationshipName": "email",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "phoneNum",
+      "otherEntityName": "phoneNum",
+      "relationshipName": "phoneNum",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "address",
+      "relationshipName": "address",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "name",
+      "otherEntityName": "tag",
+      "otherEntityRelationshipName": "applicationUser",
+      "relationshipName": "tag",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "approver",
+      "otherEntityRelationshipName": "applicationUser",
+      "relationshipName": "approver",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

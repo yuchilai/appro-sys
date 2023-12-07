@@ -1,0 +1,32 @@
+{
+  "approSysApp": {
+    "cCAddress": {
+      "home": {
+        "title": "CC Addresses",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 CC Address",
+        "createOrEditLabel": "建立或編輯 CC Address",
+        "notFound": "No CC Addresses found"
+      },
+      "created": "新的 CC Address 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 CC Address 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 CC Address 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 CC Address {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "CC Address"
+      },
+      "id": "ID",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "state": "State",
+      "county": "County",
+      "zipCode": "Zip Code",
+      "country": "Country",
+      "isUsedForInvoice": "Is Used For Invoice",
+      "clientCompany": "Client Company"
+    }
+  }
+}

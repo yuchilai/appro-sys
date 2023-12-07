@@ -1,0 +1,33 @@
+{
+  "approSysApp": {
+    "applicationUser": {
+      "home": {
+        "title": "Application Users",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Application User",
+        "createOrEditLabel": "Crear o editar Application User",
+        "notFound": "Ningún Application Users encontrado"
+      },
+      "created": "Un nuevo Application User ha sido creado con el identificador {{ param }}",
+      "updated": "Un Application User ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Application User ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Application User {{ id }}?"
+      },
+      "detail": {
+        "title": "Application User"
+      },
+      "id": "ID",
+      "invoiceGap": "Invoice Gap",
+      "theme": "Theme",
+      "isOnline": "Is Online",
+      "internalUser": "Internal User",
+      "ownedWorkEntries": "Owned Work Entries",
+      "email": "Email",
+      "phoneNum": "Phone Num",
+      "address": "Address",
+      "tag": "Tag",
+      "approver": "Approver"
+    }
+  }
+}

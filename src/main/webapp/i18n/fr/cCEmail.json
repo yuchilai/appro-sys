@@ -1,0 +1,25 @@
+{
+  "approSysApp": {
+    "cCEmail": {
+      "home": {
+        "title": "CCEmails",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau CC Email",
+        "createOrEditLabel": "Créer ou éditer un CC Email",
+        "notFound": "Aucun CC Email trouvé"
+      },
+      "created": "Un nouveau CC Email a été créé avec l'identifiant {{ param }}",
+      "updated": "Le CC Email avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le CC Email avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le CC Email {{ id }} ?"
+      },
+      "detail": {
+        "title": "CC Email"
+      },
+      "id": "ID",
+      "email": "Email",
+      "clientCompany": "Client Company"
+    }
+  }
+}

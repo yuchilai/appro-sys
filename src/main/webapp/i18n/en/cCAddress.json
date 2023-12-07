@@ -1,0 +1,32 @@
+{
+  "approSysApp": {
+    "cCAddress": {
+      "home": {
+        "title": "CC Addresses",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new CC Address",
+        "createOrEditLabel": "Create or edit a CC Address",
+        "notFound": "No CC Addresses found"
+      },
+      "created": "A new CC Address is created with identifier {{ param }}",
+      "updated": "A CC Address is updated with identifier {{ param }}",
+      "deleted": "A CC Address is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete CC Address {{ id }}?"
+      },
+      "detail": {
+        "title": "CC Address"
+      },
+      "id": "ID",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "state": "State",
+      "county": "County",
+      "zipCode": "Zip Code",
+      "country": "Country",
+      "isUsedForInvoice": "Is Used For Invoice",
+      "clientCompany": "Client Company"
+    }
+  }
+}

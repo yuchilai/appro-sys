@@ -1,0 +1,28 @@
+{
+  "approSysApp": {
+    "hourlyRate": {
+      "home": {
+        "title": "Hourly Rates",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Hourly Rate",
+        "createOrEditLabel": "Create or edit a Hourly Rate",
+        "notFound": "No Hourly Rates found"
+      },
+      "created": "A new Hourly Rate is created with identifier {{ param }}",
+      "updated": "A Hourly Rate is updated with identifier {{ param }}",
+      "deleted": "A Hourly Rate is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Hourly Rate {{ id }}?"
+      },
+      "detail": {
+        "title": "Hourly Rate"
+      },
+      "id": "ID",
+      "name": "Name",
+      "rate": "Rate",
+      "isDefault": "Is Default",
+      "workEntry": "Work Entry",
+      "clientCompany": "Client Company"
+    }
+  }
+}

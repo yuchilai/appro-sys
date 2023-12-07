@@ -1,0 +1,217 @@
+entity ApplicationUser {
+  invoiceGap Integer required min(-1) // -1 is for manually
+  theme THEME
+  isOnline Boolean
+}
+
+entity Email {
+	email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+}
+
+entity Address {
+	address1 String required
+    address2 String
+    city String required
+    state String required
+    county String
+    zipCode String required
+    country String
+}
+
+entity PhoneNum {
+	phoneNum String required
+}
+
+entity ClientCompany {
+	name String required
+    invoicePrefix String required // unique in business logic
+}
+
+entity CCEmail {
+	email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+}
+
+entity CCPhoneNum {
+	phoneNum String required
+}
+
+entity CCAddress {
+	address1 String required
+    address2 String
+    city String required
+    state String required
+    county String
+    zipCode String required
+    country String
+    isUsedForInvoice Boolean required
+}
+
+entity Approver {
+	signature ImageBlob 
+    assignedDate Instant required
+}
+
+entity WorkEntry {
+	title String required
+    date LocalDate required
+    description TextBlob required
+    startTime Instant
+    endTime Instant
+    hours Integer 
+    status WorkStatus required
+    totalAmount BigDecimal min(0)
+    comment TextBlob
+    attachments AnyBlob 
+    fileName String
+    fileType String
+    fileSize Long
+}
+
+entity Tag {
+	name String required
+}
+
+entity Approval {
+    approved Boolean required
+    approvalDateTime Instant required
+    comments TextBlob
+}
+
+entity ContactInfo {
+	positsion String required
+    firstName String
+    lastName String required
+}
+
+entity CIEmail {
+	email String required pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+}
+
+entity CIPhoneNum {
+	phoneNum String required
+}
+
+entity CIAddress {
+	address1 String required
+    address2 String
+    city String required
+    state String required
+    county String
+    zipCode String required
+    country String
+}
+
+entity Invoice {
+    issueDate LocalDate required
+    amount BigDecimal required min(0)
+    status InvoiceStatus required
+    paymentDueDate LocalDate required
+    projectDescription TextBlob
+}
+
+entity InvoiceBillingInfo {
+	firstName String required
+    lastname String required
+    email String pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+    phoneNum String required
+    address1 String required
+    address2 String
+    city String required
+    state String required
+    county String
+    zipCode String required
+    country String
+}
+
+entity HourlyRate {
+	name String required
+	rate BigDecimal required min(0)
+    isDefault Boolean required
+}
+
+entity ProjectService {
+	name String required 
+    fee BigDecimal required min(0)
+    description TextBlob
+    dayLength Integer
+    extra TextBlob
+}
+
+entity AccountsPayable {
+	deptName String required
+	repLastName String required
+    repFirstName String 
+    repEmail String required
+    repPhoneNum String required
+    isUsedForInvoice Boolean required
+}
+
+enum InvoiceStatus {
+    CREATED, SENT, PAID, CANCELLED, VOID
+}
+
+enum WorkStatus {
+    SUBMITTED, APPROVED, REJECTED
+}
+
+enum THEME {
+	AUTO, DARK, LIGHT
+}
+
+relationship OneToOne {
+	ApplicationUser{internalUser} to User with builtInEntity
+    Invoice{invoiceBillingInfo} to InvoiceBillingInfo
+    
+}
+
+relationship ManyToMany {
+    Approver{approvedWorkEntries(title)} to WorkEntry{approver}
+    Tag{workEntry(title)} to WorkEntry{tag(name)}
+    ClientCompany{approver} to Approver{clientCompany(name)}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+ 	ApplicationUser{ownedWorkEntries} to WorkEntry{owner}
+    WorkEntry{approval} to Approval
+    Approver{approval} to Approval{approver}
+    ApplicationUser{email(email)} to Email
+    ApplicationUser{phoneNum(phoneNum)} to PhoneNum
+    ApplicationUser{address} to Address
+    ClientCompany{hourlyRate(name)} to HourlyRate
+    ClientCompany{projectService(name)} to ProjectService
+    ClientCompany{contactInfo(lastName)} to ContactInfo 
+    ClientCompany{ccEmail(email)} to CCEmail
+    ClientCompany{ccPhoneNum(phoneNum)} to CCPhoneNum
+    ClientCompany{ccAddress} to CCAddress
+    ContactInfo{ciEmail(email)} to CIEmail
+    ContactInfo{ciPhoneNum(phoneNum)} to CIPhoneNum
+    ContactInfo{ciAddress} to CIAddress
+    Invoice{workEntry(title)} to WorkEntry{invoice}
+    ClientCompany{workEntry} to WorkEntry{clientCompany}
+    // ApplicationUser{clientCompany(name)} to ClientCompany
+    
+    ClientCompany{accountsPayable(deptName)} to AccountsPayable
+    ApplicationUser{tag(name)} to Tag{applicationUser}
+}
+
+relationship ManyToOne {
+	ApplicationUser{approver} to Approver{applicationUser}
+    WorkEntry{hourlyRate(name)} to HourlyRate{workEntry(title)}
+    WorkEntry{projectService(name)} to ProjectService{workEntry(title)}
+}
+
+
+// Set pagination options
+// paginate JobHistory, Employee with infinite-scroll
+paginate * with pagination
+
+// Use Data Transfer Objects (DTO)
+dto * with mapstruct
+
+// Set service options to all except few
+// service all with serviceImpl except Employee, Job
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

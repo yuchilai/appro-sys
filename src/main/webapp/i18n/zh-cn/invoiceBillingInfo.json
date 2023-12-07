@@ -1,0 +1,35 @@
+{
+  "approSysApp": {
+    "invoiceBillingInfo": {
+      "home": {
+        "title": "Invoice Billing Infos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Invoice Billing Info",
+        "createOrEditLabel": "创建或编辑 Invoice Billing Info",
+        "notFound": "No Invoice Billing Infos found"
+      },
+      "created": "Invoice Billing Info {{ param }} 创建成功",
+      "updated": "Invoice Billing Info {{ param }} 更新成功",
+      "deleted": "Invoice Billing Info {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Invoice Billing Info {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Invoice Billing Info"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastname": "Lastname",
+      "email": "Email",
+      "phoneNum": "Phone Num",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "state": "State",
+      "county": "County",
+      "zipCode": "Zip Code",
+      "country": "Country",
+      "invoice": "Invoice"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "approSysApp": {
+    "approval": {
+      "home": {
+        "title": "Approvals",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Approval",
+        "createOrEditLabel": "Crear o editar Approval",
+        "notFound": "Ningún Approvals encontrado"
+      },
+      "created": "Un nuevo Approval ha sido creado con el identificador {{ param }}",
+      "updated": "Un Approval ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Approval ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Approval {{ id }}?"
+      },
+      "detail": {
+        "title": "Approval"
+      },
+      "id": "ID",
+      "approved": "Approved",
+      "approvalDateTime": "Approval Date Time",
+      "comments": "Comments",
+      "approver": "Approver",
+      "workEntry": "Work Entry"
+    }
+  }
+}

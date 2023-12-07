@@ -1,0 +1,12 @@
+{
+  "approSysApp": {
+    "InvoiceStatus": {
+      "null": "",
+      "CREATED": "CREATED",
+      "SENT": "SENT",
+      "PAID": "PAID",
+      "CANCELLED": "CANCELLED",
+      "VOID": "VOID"
+    }
+  }
+}

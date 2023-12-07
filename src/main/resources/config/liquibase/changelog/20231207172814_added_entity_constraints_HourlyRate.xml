@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity HourlyRate.
+    -->
+    <changeSet id="20231207172814-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="client_company_id"
+                                 baseTableName="hourly_rate"
+                                 constraintName="fk_hourly_rate__client_company_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="client_company"
+                                 />
+    </changeSet>
+</databaseChangeLog>

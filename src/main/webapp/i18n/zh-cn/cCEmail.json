@@ -1,0 +1,25 @@
+{
+  "approSysApp": {
+    "cCEmail": {
+      "home": {
+        "title": "CC Emails",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 CC Email",
+        "createOrEditLabel": "创建或编辑 CC Email",
+        "notFound": "No CC Emails found"
+      },
+      "created": "CC Email {{ param }} 创建成功",
+      "updated": "CC Email {{ param }} 更新成功",
+      "deleted": "CC Email {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 CC Email {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "CC Email"
+      },
+      "id": "ID",
+      "email": "Email",
+      "clientCompany": "Client Company"
+    }
+  }
+}

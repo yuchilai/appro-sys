@@ -1,0 +1,25 @@
+{
+  "approSysApp": {
+    "email": {
+      "home": {
+        "title": "Emails",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Email",
+        "createOrEditLabel": "Crear o editar Email",
+        "notFound": "Ningún Emails encontrado"
+      },
+      "created": "Un nuevo Email ha sido creado con el identificador {{ param }}",
+      "updated": "Un Email ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Email ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Email {{ id }}?"
+      },
+      "detail": {
+        "title": "Email"
+      },
+      "id": "ID",
+      "email": "Email",
+      "applicationUser": "Application User"
+    }
+  }
+}
