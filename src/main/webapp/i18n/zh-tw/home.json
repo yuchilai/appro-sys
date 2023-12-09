@@ -14,6 +14,7 @@
       "follow": "在 Twitter 上關注 @jhipster"
     },
     "like": "如果您喜歡我的項目，別忘了在上面給我們點贊",
-    "github": "GitHub"
+    "github": "GitHub",
+    "welcome": "歡迎"
   }
 }
