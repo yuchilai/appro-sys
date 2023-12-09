@@ -68,9 +68,9 @@
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "Si desea ",
-          "link": "iniciar sesión",
-          "suffix": ", puede intentar con las cuentas predeterminadas:<br/>- Administrador (usuario=\"admin\" y contraseña=\"admin\") <br/>- Usuario (usuario=\"user\" y contraseña=\"user\")."
+          "prefix": "Por favor, inicie sesión ",
+          "link": "aquí",
+          "suffix": ". Si usted es un aprobador, debe solicitar a su enlace de cliente designado que lo asigne como su aprobador oficial."
         },
         "register": {
           "noaccount": "¿Aún no tienes una cuenta?",

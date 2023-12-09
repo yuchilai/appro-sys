@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "欢迎, Java Hipster!",
-    "subtitle": "这里是首页",
+    "title": "欢迎来到 ApproSys",
+    "subtitle": "ApproSys是一个量身定制的解决方案，旨在简化自由职业编程顾问的项目审批和开票流程。",
     "logged": {
       "message": "您目前是以 \"{{username}}\" 账号登录."
     },
@@ -13,7 +13,7 @@
       "chat": "JHipster public chat room",
       "follow": "在 Twitter 上联络 @jhipster"
     },
-    "like": "如果您喜欢 JHipster, 请记得给我们加星在",
+    "like": "如果您喜欢我的项目，别忘了在上面给我们点赞",
     "github": "GitHub"
   }
 }

@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "Bienvenue, Java Hipster !",
-    "subtitle": "Ceci est votre page d'accueil",
+    "title": "Bienvenue chez ApproSys",
+    "subtitle": "ApproSys est une solution sur mesure conçue pour rationaliser le processus d'approbation de projets et de facturation pour les consultants en programmation freelance.",
     "logged": {
       "message": "Vous êtes connecté en tant que \"{{username}}\"."
     },
@@ -13,7 +13,7 @@
       "chat": "JHipster public chat room",
       "follow": "Suivez @jhipster sur Twitter"
     },
-    "like": "Si vous aimez JHipster, donnez nous une étoile sur",
+    "like": "Si vous aimez mon projet, n'oubliez pas de nous donner une étoile sur",
     "github": "GitHub "
   }
 }

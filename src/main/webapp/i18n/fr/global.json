@@ -68,9 +68,9 @@
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "Si vous voulez vous ",
-          "link": "connecter",
-          "suffix": ", vous pouvez utiliser les comptes par défaut : <br/> - Administrateur (nom d'utilisateur=\"admin\" et mot de passe =\"admin\") <br/> - Utilisateur (nom d'utilisateur=\"user\" et mot de passe =\"user\")."
+          "prefix": "Veuillez vous connecter ",
+          "link": "ici",
+          "suffix": ". Si vous êtes un approbateur, vous devez demander à votre liaison client désignée de vous assigner comme leur approbateur officiel."
         },
         "register": {
           "noaccount": "Vous n'avez pas encore de compte ?",

@@ -68,9 +68,9 @@
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "如果您要",
-          "link": "登入",
-          "suffix": "，可以使用預設帳號:<br/>- 管理員 (帳號是 \"admin\"，密碼是 \"admin\") <br/>- 使用者 (帳號 \"user\"，密碼是 \"user\")。"
+          "prefix": "請在",
+          "link": "這裡",
+          "suffix": "登入。如果您是審批人，您應該要求您的指定客戶聯絡人將您指定為他們的官方審批人。"
         },
         "register": {
           "noaccount": "還沒有帳號嗎?",
