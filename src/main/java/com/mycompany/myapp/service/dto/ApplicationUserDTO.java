@@ -13,7 +13,6 @@ public class ApplicationUserDTO implements Serializable {
 
     private Long id;
 
-    @NotNull
     @Min(value = -1)
     private Integer invoiceGap;
 

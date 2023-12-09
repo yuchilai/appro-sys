@@ -26,9 +26,8 @@ public class ApplicationUser implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @NotNull
     @Min(value = -1)
-    @Column(name = "invoice_gap", nullable = false)
+    @Column(name = "invoice_gap")
     private Integer invoiceGap;
 
     @Enumerated(EnumType.STRING)

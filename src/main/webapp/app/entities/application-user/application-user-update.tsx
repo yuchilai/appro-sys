@@ -58,7 +58,14 @@ export const ApplicationUserUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
-    if (values.invoiceGap !== undefined && typeof values.invoiceGap !== 'number') {
+    // if (values.invoiceGap !== undefined && typeof values.invoiceGap !== 'number') {
+    //   values.invoiceGap = Number(values.invoiceGap);
+    // }
+    // Set invoiceGap to undefined if it's an empty string or undefined
+    if (values.invoiceGap === '' || values.invoiceGap === undefined) {
+      values.invoiceGap = undefined;
+    } else if (typeof values.invoiceGap !== 'number') {
+      // Convert invoiceGap to number if it's a non-empty string
       values.invoiceGap = Number(values.invoiceGap);
     }
 
@@ -118,7 +125,6 @@ export const ApplicationUserUpdate = () => {
                 data-cy="invoiceGap"
                 type="text"
                 validate={{
-                  required: { value: true, message: translate('entity.validation.required') },
                   min: { value: -1, message: translate('entity.validation.min', { min: -1 }) },
                   validate: v => isNumber(v) || translate('entity.validation.number'),
                 }}

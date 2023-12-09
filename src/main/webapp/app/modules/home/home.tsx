@@ -3,7 +3,7 @@ import './home.scss';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
-import { Row, Col, Alert, Button } from 'reactstrap';
+import { Row, Col, Alert, Button, Card } from 'reactstrap';
 
 import { useAppSelector } from 'app/config/store';
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
@@ -66,7 +66,7 @@ export const Home = () => {
         </Row>
       ) : (
         <Row>
-          <Col md="3" className="pad">
+          <Col md="4" className="pad">
             <h1 className="display-5">
               <Translate contentKey="home.welcome">Welcome</Translate> {account.login}
             </h1>
@@ -74,13 +74,25 @@ export const Home = () => {
               <Clock />
             </h2>
           </Col>
-          <Col md="9">
-            <Button tag={Link} to="/address" size="lg" replace color="info" data-cy="">
-              <FontAwesomeIcon icon="briefcase" />{' '}
-              <span className="d-none d-md-inline">
-                <Translate contentKey="entity.action.back">Back</Translate>
-              </span>
-            </Button>
+          <Col md="4">
+            <Card>
+              <Button tag={Link} to="/address" size="lg" replace color="info" data-cy="">
+                <FontAwesomeIcon icon="briefcase" />{' '}
+                <span className="d-none d-md-inline">
+                  <Translate contentKey="entity.action.back">Back</Translate>
+                </span>
+              </Button>
+            </Card>
+          </Col>
+          <Col md="4">
+            <Card>
+              <Button tag={Link} to="/address" size="lg" replace color="info" data-cy="">
+                <FontAwesomeIcon icon="briefcase" />{' '}
+                <span className="d-none d-md-inline">
+                  <Translate contentKey="entity.action.back">Back</Translate>
+                </span>
+              </Button>
+            </Card>
           </Col>
         </Row>
       )}
