@@ -1,5 +1,5 @@
 entity ApplicationUser {
-  invoiceGap Integer required min(-1) // -1 is for manually
+  invoiceGap Integer min(-1) // -1 is for manually: CHANGED: reuqired -> not required
   theme THEME
   isOnline Boolean
 }
@@ -44,6 +44,7 @@ entity CCAddress {
     zipCode String required
     country String
     isUsedForInvoice Boolean required
+    
 }
 
 entity Approver {
