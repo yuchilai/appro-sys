@@ -79,6 +79,27 @@ public class WorkEntry implements Serializable {
     @Column(name = "file_size")
     private Long fileSize;
 
+    // below is my edited code
+    @Column(name = "created_date")
+    private Instant createdDate;
+
+    @Column(name = "last_modified_date")
+    private Instant lastModifiedDate;
+
+    @Column(name = "approval_key")
+    private String approvalKey;
+
+    @Column(name = "approval_key_regenerated_days")
+    private Integer approvalKeyRegeneratedDays;
+
+    @Column(name = "approval_key_created_date")
+    private Instant approvalKeyCreatedDate;
+
+    @Column(name = "batch_approval_key")
+    private String batchApprovalKey;
+
+    // end of my edited code
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "workEntry")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "approver", "workEntry" }, allowSetters = true)
@@ -327,6 +348,87 @@ public class WorkEntry implements Serializable {
         this.fileSize = fileSize;
     }
 
+    // below is my edited code
+    public Instant getCreatedDate() {
+        return createdDate;
+    }
+
+    public WorkEntry createdDate(Instant createdDate) {
+        this.createdDate = createdDate;
+        return this;
+    }
+
+    public void setCreatedDate(Instant createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Instant getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public WorkEntry lastModifiedDate(Instant lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+        return this;
+    }
+
+    public void setLastModifiedDate(Instant lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public String getApprovalKey() {
+        return approvalKey;
+    }
+
+    public WorkEntry approvalKey(String approvalKey) {
+        this.approvalKey = approvalKey;
+        return this;
+    }
+
+    public void setApprovalKey(String approvalKey) {
+        this.approvalKey = approvalKey;
+    }
+
+    public Integer getApprovalKeyRegeneratedDays() {
+        return approvalKeyRegeneratedDays;
+    }
+
+    public WorkEntry approvalKeyRegeneratedDays(Integer approvalKeyRegeneratedDays) {
+        this.approvalKeyRegeneratedDays = approvalKeyRegeneratedDays;
+        return this;
+    }
+
+    public void setApprovalKeyRegeneratedDays(Integer approvalKeyRegeneratedDays) {
+        this.approvalKeyRegeneratedDays = approvalKeyRegeneratedDays;
+    }
+
+    public Instant getApprovalKeyCreatedDate() {
+        return approvalKeyCreatedDate;
+    }
+
+    public WorkEntry approvalKeyCreatedDate(Instant approvalKeyCreatedDate) {
+        this.approvalKeyCreatedDate = approvalKeyCreatedDate;
+        return this;
+    }
+
+    public void setApprovalKeyCreatedDate(Instant approvalKeyCreatedDate) {
+        this.approvalKeyCreatedDate = approvalKeyCreatedDate;
+    }
+
+    public String getBatchApprovalKey() {
+        return batchApprovalKey;
+    }
+
+    public WorkEntry batchApprovalKey(String batchApprovalKey) {
+        this.batchApprovalKey = batchApprovalKey;
+        return this;
+    }
+
+    public void setBatchApprovalKey(String batchApprovalKey) {
+        this.batchApprovalKey = batchApprovalKey;
+    }
+
+    // end of my edited code
+
     public Set<Approval> getApprovals() {
         return this.approvals;
     }
@@ -522,7 +624,13 @@ public class WorkEntry implements Serializable {
             ", attachmentsContentType='" + getAttachmentsContentType() + "'" +
             ", fileName='" + getFileName() + "'" +
             ", fileType='" + getFileType() + "'" +
-            ", fileSize=" + getFileSize() +
+            ", fileSize=" + getFileSize() + "'"+
+            ", createdDate='" + getCreatedDate() + "'" +
+            ", lastModifiedDate='" + getLastModifiedDate() + "'" +
+            ", approvalKey='" + getApprovalKey() + "'" +
+            ", approvalKeyRegeneratedDays=" + getApprovalKeyRegeneratedDays() +
+            ", approvalKeyCreatedDate='" + getApprovalKeyCreatedDate() + "'" +
+            ", batchApprovalKey='" + getBatchApprovalKey() + "'" +
             "}";
     }
 }

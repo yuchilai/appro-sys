@@ -56,6 +56,26 @@
             <column name="file_size" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <!-- New columns -->
+            <column name="created_date" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_date" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+            <column name="approval_key" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="approval_key_regenerated_days" type="int">
+                <constraints nullable="true" />
+            </column>
+            <column name="approval_key_created_date" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+            <column name="batch_approval_key" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <!-- End New columns -->
             <column name="hourly_rate_id" type="bigint">
                 <constraints nullable="true" />
             </column>

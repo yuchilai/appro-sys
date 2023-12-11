@@ -51,6 +51,20 @@ public class WorkEntryDTO implements Serializable {
 
     private Long fileSize;
 
+    // below is my edited code
+    private Instant createdDate;
+
+    private Instant lastModifiedDate;
+
+    private String approvalKey;
+
+    private Integer approvalKeyRegeneratedDays;
+
+    private Instant approvalKeyCreatedDate;
+
+    private String batchApprovalKey;
+    // end of my edited code
+
     private HourlyRateDTO hourlyRate;
 
     private ProjectServiceDTO projectService;
@@ -181,6 +195,57 @@ public class WorkEntryDTO implements Serializable {
         this.fileSize = fileSize;
     }
 
+    // below is my edited code
+    public Instant getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Instant createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Instant getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Instant lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public String getApprovalKey() {
+        return approvalKey;
+    }
+
+    public void setApprovalKey(String approvalKey) {
+        this.approvalKey = approvalKey;
+    }
+
+    public Integer getApprovalKeyRegeneratedDays() {
+        return approvalKeyRegeneratedDays;
+    }
+
+    public void setApprovalKeyRegeneratedDays(Integer approvalKeyRegeneratedDays) {
+        this.approvalKeyRegeneratedDays = approvalKeyRegeneratedDays;
+    }
+
+    public Instant getApprovalKeyCreatedDate() {
+        return approvalKeyCreatedDate;
+    }
+
+    public void setApprovalKeyCreatedDate(Instant approvalKeyCreatedDate) {
+        this.approvalKeyCreatedDate = approvalKeyCreatedDate;
+    }
+
+    public String getBatchApprovalKey() {
+        return batchApprovalKey;
+    }
+
+    public void setBatchApprovalKey(String batchApprovalKey) {
+        this.batchApprovalKey = batchApprovalKey;
+    }
+
+    // end of my edited code
+
     public HourlyRateDTO getHourlyRate() {
         return hourlyRate;
     }
@@ -260,6 +325,12 @@ public class WorkEntryDTO implements Serializable {
             ", fileName='" + getFileName() + "'" +
             ", fileType='" + getFileType() + "'" +
             ", fileSize=" + getFileSize() +
+            ", createdDate='" + getCreatedDate() + "'" +
+            ", lastModifiedDate='" + getLastModifiedDate() + "'" +
+            ", approvalKey='" + getApprovalKey() + "'" +
+            ", approvalKeyRegeneratedDays=" + getApprovalKeyRegeneratedDays() +
+            ", approvalKeyCreatedDate='" + getApprovalKeyCreatedDate() + "'" +
+            ", batchApprovalKey='" + getBatchApprovalKey() + "'" +
             ", hourlyRate=" + getHourlyRate() +
             ", projectService=" + getProjectService() +
             ", owner=" + getOwner() +
