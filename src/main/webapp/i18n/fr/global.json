@@ -70,7 +70,8 @@
         "authenticated": {
           "prefix": "Veuillez vous connecter ",
           "link": "ici",
-          "suffix": ". Si vous êtes un approbateur, vous devez demander à votre liaison client désignée de vous assigner comme leur approbateur officiel."
+          "suffix": ". Si vous êtes un approbateur, vous devez demander à votre liaison client désignée de vous assigner comme leur approbateur officiel.",
+          "prefixwithoutplease": "se connecter"
         },
         "register": {
           "noaccount": "Vous n'avez pas encore de compte ?",

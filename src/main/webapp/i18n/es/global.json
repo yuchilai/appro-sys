@@ -70,7 +70,8 @@
         "authenticated": {
           "prefix": "Por favor, inicie sesión ",
           "link": "aquí",
-          "suffix": ". Si usted es un aprobador, debe solicitar a su enlace de cliente designado que lo asigne como su aprobador oficial."
+          "suffix": ". Si usted es un aprobador, debe solicitar a su enlace de cliente designado que lo asigne como su aprobador oficial.",
+          "prefixwithoutplease": "iniciar sesión"
         },
         "register": {
           "noaccount": "¿Aún no tienes una cuenta?",

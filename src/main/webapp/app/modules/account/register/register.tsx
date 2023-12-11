@@ -52,10 +52,10 @@ export const RegisterPage = () => {
                 <strong>Registration saved!</strong> Please check your email for confirmation.
               </Translate>{' '}
               <span>
-                <Translate contentKey="global.messages.info.authenticated.prefix">If you want to</Translate>{' '}
+                <Translate contentKey="global.messages.info.authenticated.prefix">Please sign in</Translate>{' '}
               </span>
               <Link to="/login" className="alert-link">
-                <Translate contentKey="global.messages.info.authenticated.link">sign in</Translate>
+                <Translate contentKey="global.messages.info.authenticated.link">here</Translate>
               </Link>
             </Alert>
           </Col>

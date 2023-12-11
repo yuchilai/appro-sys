@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Col, Row, Button } from 'reactstrap';
+import { Col, Row, Button, Alert } from 'reactstrap';
 import { Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { handlePasswordResetFinish, reset } from '../password-reset.reducer';
@@ -72,6 +72,30 @@ export const PasswordResetFinishPage = () => {
     }
   }, [successMessage]);
 
+  const renderSuccessMessage = () => (
+    <div>
+      <Alert color="success">
+        {translate(successMessage)}
+        <span>
+          <Translate contentKey="global.messages.info.authenticated.prefixwithoutplease">sign in</Translate>{' '}
+        </span>
+        <Link to="/login" className="alert-link">
+          <Translate contentKey="global.messages.info.authenticated.link">here</Translate>
+        </Link>
+      </Alert>
+    </div>
+  );
+
+  const renderContent = () => {
+    if (!key) {
+      return null;
+    } else if (successMessage) {
+      return <div>{renderSuccessMessage()}</div>;
+    } else {
+      return getResetForm();
+    }
+  };
+
   return (
     <div>
       <Row className="justify-content-center">
@@ -79,7 +103,7 @@ export const PasswordResetFinishPage = () => {
           <h1>
             <Translate contentKey="reset.finish.title">Reset password</Translate>
           </h1>
-          <div>{key ? getResetForm() : null}</div>
+          <div>{renderContent()}</div>
         </Col>
       </Row>
     </div>

@@ -154,6 +154,16 @@ export const UserManagement = () => {
               <td>{user.login}</td>
               <td>{user.email}</td>
               <td>
+                {/* If JHipster Translate is not responding dynamically, change to this one. */}
+                {/* {user.activated ? (
+                  <Button color="success" onClick={toggleActive(user)}>
+                    {'Activated'}
+                  </Button>
+                ) : (
+                  <Button color="danger" onClick={toggleActive(user)}>
+                    {'Deactivated'}
+                  </Button>
+                )} */}
                 {user.activated ? (
                   <Button color="success" onClick={toggleActive(user)}>
                     <Translate contentKey="userManagement.activated">Activated</Translate>

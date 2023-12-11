@@ -70,7 +70,8 @@
         "authenticated": {
           "prefix": "请在",
           "link": "这里",
-          "suffix": "登录。如果您是审批人，您应该要求您的指定客户联络人将您指定为他们的官方审批人。"
+          "suffix": "登录。如果您是审批人，您应该要求您的指定客户联络人将您指定为他们的官方审批人。",
+          "prefixwithoutplease": "登录"
         },
         "register": {
           "noaccount": "您还没有账号",

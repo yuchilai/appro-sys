@@ -70,7 +70,8 @@
         "authenticated": {
           "prefix": "請在",
           "link": "這裡",
-          "suffix": "登入。如果您是審批人，您應該要求您的指定客戶聯絡人將您指定為他們的官方審批人。"
+          "suffix": "登入。如果您是審批人，您應該要求您的指定客戶聯絡人將您指定為他們的官方審批人。",
+          "prefixwithoutplease": "登入"
         },
         "register": {
           "noaccount": "還沒有帳號嗎?",

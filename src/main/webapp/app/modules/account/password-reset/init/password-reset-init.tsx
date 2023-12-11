@@ -30,36 +30,53 @@ export const PasswordResetInit = () => {
 
   return (
     <div>
-      <Row className="justify-content-center">
-        <Col md="8">
-          <h1>
-            <Translate contentKey="reset.request.title">Reset your password</Translate>
-          </h1>
-          <Alert color="warning">
-            <p>
-              <Translate contentKey="reset.request.messages.info">Enter the email address you used to register</Translate>
-            </p>
-          </Alert>
-          <ValidatedForm onSubmit={handleValidSubmit}>
-            <ValidatedField
-              name="email"
-              label={translate('global.form.email.label')}
-              placeholder={translate('global.form.email.placeholder')}
-              type="email"
-              validate={{
-                required: { value: true, message: translate('global.messages.validate.email.required') },
-                minLength: { value: 5, message: translate('global.messages.validate.email.minlength') },
-                maxLength: { value: 254, message: translate('global.messages.validate.email.maxlength') },
-                validate: v => isEmail(v) || translate('global.messages.validate.email.invalid'),
-              }}
-              data-cy="emailResetPassword"
-            />
-            <Button color="primary" type="submit" data-cy="submit">
-              <Translate contentKey="reset.request.form.button">Reset password</Translate>
-            </Button>
-          </ValidatedForm>
-        </Col>
-      </Row>
+      {!successMessage ? (
+        <Row className="justify-content-center">
+          <Col md="8">
+            <h1>
+              <Translate contentKey="reset.request.title">Reset your password</Translate>
+            </h1>
+            <Alert color="warning">
+              <p>
+                <Translate contentKey="reset.request.messages.info">Enter the email address you used to register</Translate>
+              </p>
+            </Alert>
+            <ValidatedForm onSubmit={handleValidSubmit}>
+              <ValidatedField
+                name="email"
+                label={translate('global.form.email.label')}
+                placeholder={translate('global.form.email.placeholder')}
+                type="email"
+                validate={{
+                  required: { value: true, message: translate('global.messages.validate.email.required') },
+                  minLength: { value: 5, message: translate('global.messages.validate.email.minlength') },
+                  maxLength: { value: 254, message: translate('global.messages.validate.email.maxlength') },
+                  validate: v => isEmail(v) || translate('global.messages.validate.email.invalid'),
+                }}
+                data-cy="emailResetPassword"
+              />
+              <Button color="primary" type="submit" data-cy="submit">
+                <Translate contentKey="reset.request.form.button">Reset password</Translate>
+              </Button>
+            </ValidatedForm>
+          </Col>
+        </Row>
+      ) : (
+        <Row className="justify-content-center">
+          <Col md="8">
+            <h1>
+              <Translate contentKey="reset.request.title">Reset your password</Translate>
+            </h1>
+            <Alert color="success">
+              <p>
+                <Translate contentKey="reset.request.messages.success">
+                  Check your email for details on how to reset your password.
+                </Translate>
+              </p>
+            </Alert>
+          </Col>
+        </Row>
+      )}
     </div>
   );
 };

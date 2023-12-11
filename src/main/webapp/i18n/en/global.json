@@ -70,7 +70,8 @@
         "authenticated": {
           "prefix": "Please sign in ",
           "link": "here",
-          "suffix": ". If you are an approver, you should request your designated client liaison to assign you as their official approver."
+          "suffix": ". If you are an approver, you should request your designated client liaison to assign you as their official approver.",
+          "prefixwithoutplease": "sign in"
         },
         "register": {
           "noaccount": "You don't have an account yet?",
