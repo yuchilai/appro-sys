@@ -32,12 +32,6 @@ export const ApplicationUserDetail = () => {
           </dt>
           <dd>{applicationUserEntity.id}</dd>
           <dt>
-            <span id="invoiceGap">
-              <Translate contentKey="approSysApp.applicationUser.invoiceGap">Invoice Gap</Translate>
-            </span>
-          </dt>
-          <dd>{applicationUserEntity.invoiceGap}</dd>
-          <dt>
             <span id="theme">
               <Translate contentKey="approSysApp.applicationUser.theme">Theme</Translate>
             </span>
@@ -49,6 +43,12 @@ export const ApplicationUserDetail = () => {
             </span>
           </dt>
           <dd>{applicationUserEntity.isOnline ? 'true' : 'false'}</dd>
+          <dt>
+            <span id="invoiceGap">
+              <Translate contentKey="approSysApp.applicationUser.invoiceGap">Invoice Gap</Translate>
+            </span>
+          </dt>
+          <dd>{applicationUserEntity.invoiceGap}</dd>
           <dt>
             <Translate contentKey="approSysApp.applicationUser.internalUser">Internal User</Translate>
           </dt>

@@ -24,6 +24,12 @@ export interface IWorkEntry {
   fileName?: string | null;
   fileType?: string | null;
   fileSize?: number | null;
+  createdDate?: string | null;
+  lastModifiedDate?: string | null;
+  approvalKeyRegeneratedDays?: number | null;
+  approvalKeyCreatedDate?: string | null;
+  approvalKey?: string | null;
+  batchApprovalKey?: string | null;
   approvals?: IApproval[] | null;
   hourlyRate?: IHourlyRate | null;
   projectService?: IProjectService | null;

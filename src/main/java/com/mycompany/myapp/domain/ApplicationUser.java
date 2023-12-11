@@ -3,7 +3,6 @@ package com.mycompany.myapp.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.mycompany.myapp.domain.enumeration.THEME;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,16 +25,15 @@ public class ApplicationUser implements Serializable {
     @Column(name = "id")
     private Long id;
 
-    @Min(value = -1)
-    @Column(name = "invoice_gap")
-    private Integer invoiceGap;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "theme")
     private THEME theme;
 
     @Column(name = "is_online")
     private Boolean isOnline;
+
+    @Column(name = "invoice_gap")
+    private Integer invoiceGap;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(unique = true)
@@ -88,19 +86,6 @@ public class ApplicationUser implements Serializable {
         this.id = id;
     }
 
-    public Integer getInvoiceGap() {
-        return this.invoiceGap;
-    }
-
-    public ApplicationUser invoiceGap(Integer invoiceGap) {
-        this.setInvoiceGap(invoiceGap);
-        return this;
-    }
-
-    public void setInvoiceGap(Integer invoiceGap) {
-        this.invoiceGap = invoiceGap;
-    }
-
     public THEME getTheme() {
         return this.theme;
     }
@@ -125,6 +110,19 @@ public class ApplicationUser implements Serializable {
 
     public void setIsOnline(Boolean isOnline) {
         this.isOnline = isOnline;
+    }
+
+    public Integer getInvoiceGap() {
+        return this.invoiceGap;
+    }
+
+    public ApplicationUser invoiceGap(Integer invoiceGap) {
+        this.setInvoiceGap(invoiceGap);
+        return this;
+    }
+
+    public void setInvoiceGap(Integer invoiceGap) {
+        this.invoiceGap = invoiceGap;
     }
 
     public User getInternalUser() {
@@ -332,9 +330,9 @@ public class ApplicationUser implements Serializable {
     public String toString() {
         return "ApplicationUser{" +
             "id=" + getId() +
-            ", invoiceGap=" + getInvoiceGap() +
             ", theme='" + getTheme() + "'" +
             ", isOnline='" + getIsOnline() + "'" +
+            ", invoiceGap=" + getInvoiceGap() +
             "}";
     }
 }

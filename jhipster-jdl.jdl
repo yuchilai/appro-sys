@@ -66,6 +66,14 @@ entity WorkEntry {
     fileName String
     fileType String
     fileSize Long
+    // New (add more fields by using jhipster entity WorkEntry)
+    createdDate Instant
+    lastModifiedDate Instant
+    approvalKeyRegeneratedDays Integer
+    approvalKeyCreatedDate Instant
+    approvalKey String
+    // Batch approval
+    batchApprovalKey String
 }
 
 entity Tag {

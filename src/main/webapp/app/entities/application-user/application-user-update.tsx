@@ -58,14 +58,7 @@ export const ApplicationUserUpdate = () => {
     if (values.id !== undefined && typeof values.id !== 'number') {
       values.id = Number(values.id);
     }
-    // if (values.invoiceGap !== undefined && typeof values.invoiceGap !== 'number') {
-    //   values.invoiceGap = Number(values.invoiceGap);
-    // }
-    // Set invoiceGap to undefined if it's an empty string or undefined
-    if (values.invoiceGap === '' || values.invoiceGap === undefined) {
-      values.invoiceGap = undefined;
-    } else if (typeof values.invoiceGap !== 'number') {
-      // Convert invoiceGap to number if it's a non-empty string
+    if (values.invoiceGap !== undefined && typeof values.invoiceGap !== 'number') {
       values.invoiceGap = Number(values.invoiceGap);
     }
 
@@ -119,17 +112,6 @@ export const ApplicationUserUpdate = () => {
                 />
               ) : null}
               <ValidatedField
-                label={translate('approSysApp.applicationUser.invoiceGap')}
-                id="application-user-invoiceGap"
-                name="invoiceGap"
-                data-cy="invoiceGap"
-                type="text"
-                validate={{
-                  min: { value: -1, message: translate('entity.validation.min', { min: -1 }) },
-                  validate: v => isNumber(v) || translate('entity.validation.number'),
-                }}
-              />
-              <ValidatedField
                 label={translate('approSysApp.applicationUser.theme')}
                 id="application-user-theme"
                 name="theme"
@@ -149,6 +131,13 @@ export const ApplicationUserUpdate = () => {
                 data-cy="isOnline"
                 check
                 type="checkbox"
+              />
+              <ValidatedField
+                label={translate('approSysApp.applicationUser.invoiceGap')}
+                id="application-user-invoiceGap"
+                name="invoiceGap"
+                data-cy="invoiceGap"
+                type="text"
               />
               <ValidatedField
                 id="application-user-internalUser"

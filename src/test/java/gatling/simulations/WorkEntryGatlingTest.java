@@ -90,6 +90,12 @@ public class WorkEntryGatlingTest extends Simulation {
                                 ", \"fileName\": \"SAMPLE_TEXT\"" +
                                 ", \"fileType\": \"SAMPLE_TEXT\"" +
                                 ", \"fileSize\": 0" +
+                                ", \"createdDate\": \"2020-01-01T00:00:00.000Z\"" +
+                                ", \"lastModifiedDate\": \"2020-01-01T00:00:00.000Z\"" +
+                                ", \"approvalKeyRegeneratedDays\": 0" +
+                                ", \"approvalKeyCreatedDate\": \"2020-01-01T00:00:00.000Z\"" +
+                                ", \"approvalKey\": \"SAMPLE_TEXT\"" +
+                                ", \"batchApprovalKey\": \"SAMPLE_TEXT\"" +
                                 "}"
                             )
                         )

@@ -14,13 +14,13 @@
             <column name="id" type="bigint" autoIncrement="true" startWith="1500">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="invoice_gap" type="integer">
-                <constraints nullable="true" />
-            </column>
             <column name="theme" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
             <column name="is_online" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="invoice_gap" type="integer">
                 <constraints nullable="true" />
             </column>
             <column name="internal_user_id" type="bigint">
@@ -50,9 +50,9 @@
                   tableName="application_user"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="invoice_gap" type="numeric"/>
             <column name="theme" type="string"/>
             <column name="is_online" type="boolean"/>
+            <column name="invoice_gap" type="numeric"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

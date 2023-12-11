@@ -18,9 +18,9 @@
         "title": "Application User"
       },
       "id": "ID",
-      "invoiceGap": "Invoice Gap",
       "theme": "Theme",
       "isOnline": "Is Online",
+      "invoiceGap": "Invoice Gap",
       "internalUser": "Internal User",
       "ownedWorkEntries": "Owned Work Entries",
       "email": "Email",

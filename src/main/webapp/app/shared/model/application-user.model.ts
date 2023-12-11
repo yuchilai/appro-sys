@@ -9,9 +9,9 @@ import { THEME } from 'app/shared/model/enumerations/theme.model';
 
 export interface IApplicationUser {
   id?: number;
-  invoiceGap?: number;
   theme?: keyof typeof THEME | null;
   isOnline?: boolean | null;
+  invoiceGap?: number | null;
   internalUser?: IUser | null;
   ownedWorkEntries?: IWorkEntry[] | null;
   emails?: IEmail[] | null;

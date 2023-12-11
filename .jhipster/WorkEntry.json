@@ -65,6 +65,30 @@
     {
       "fieldName": "fileSize",
       "fieldType": "Long"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "lastModifiedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "approvalKeyRegeneratedDays",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "approvalKeyCreatedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "approvalKey",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "batchApprovalKey",
+      "fieldType": "String"
     }
   ],
   "name": "WorkEntry",

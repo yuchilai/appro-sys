@@ -79,6 +79,24 @@ public class WorkEntry implements Serializable {
     @Column(name = "file_size")
     private Long fileSize;
 
+    @Column(name = "created_date")
+    private Instant createdDate;
+
+    @Column(name = "last_modified_date")
+    private Instant lastModifiedDate;
+
+    @Column(name = "approval_key_regenerated_days")
+    private Integer approvalKeyRegeneratedDays;
+
+    @Column(name = "approval_key_created_date")
+    private Instant approvalKeyCreatedDate;
+
+    @Column(name = "approval_key")
+    private String approvalKey;
+
+    @Column(name = "batch_approval_key")
+    private String batchApprovalKey;
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "workEntry")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "approver", "workEntry" }, allowSetters = true)
@@ -327,6 +345,84 @@ public class WorkEntry implements Serializable {
         this.fileSize = fileSize;
     }
 
+    public Instant getCreatedDate() {
+        return this.createdDate;
+    }
+
+    public WorkEntry createdDate(Instant createdDate) {
+        this.setCreatedDate(createdDate);
+        return this;
+    }
+
+    public void setCreatedDate(Instant createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Instant getLastModifiedDate() {
+        return this.lastModifiedDate;
+    }
+
+    public WorkEntry lastModifiedDate(Instant lastModifiedDate) {
+        this.setLastModifiedDate(lastModifiedDate);
+        return this;
+    }
+
+    public void setLastModifiedDate(Instant lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public Integer getApprovalKeyRegeneratedDays() {
+        return this.approvalKeyRegeneratedDays;
+    }
+
+    public WorkEntry approvalKeyRegeneratedDays(Integer approvalKeyRegeneratedDays) {
+        this.setApprovalKeyRegeneratedDays(approvalKeyRegeneratedDays);
+        return this;
+    }
+
+    public void setApprovalKeyRegeneratedDays(Integer approvalKeyRegeneratedDays) {
+        this.approvalKeyRegeneratedDays = approvalKeyRegeneratedDays;
+    }
+
+    public Instant getApprovalKeyCreatedDate() {
+        return this.approvalKeyCreatedDate;
+    }
+
+    public WorkEntry approvalKeyCreatedDate(Instant approvalKeyCreatedDate) {
+        this.setApprovalKeyCreatedDate(approvalKeyCreatedDate);
+        return this;
+    }
+
+    public void setApprovalKeyCreatedDate(Instant approvalKeyCreatedDate) {
+        this.approvalKeyCreatedDate = approvalKeyCreatedDate;
+    }
+
+    public String getApprovalKey() {
+        return this.approvalKey;
+    }
+
+    public WorkEntry approvalKey(String approvalKey) {
+        this.setApprovalKey(approvalKey);
+        return this;
+    }
+
+    public void setApprovalKey(String approvalKey) {
+        this.approvalKey = approvalKey;
+    }
+
+    public String getBatchApprovalKey() {
+        return this.batchApprovalKey;
+    }
+
+    public WorkEntry batchApprovalKey(String batchApprovalKey) {
+        this.setBatchApprovalKey(batchApprovalKey);
+        return this;
+    }
+
+    public void setBatchApprovalKey(String batchApprovalKey) {
+        this.batchApprovalKey = batchApprovalKey;
+    }
+
     public Set<Approval> getApprovals() {
         return this.approvals;
     }
@@ -523,6 +619,12 @@ public class WorkEntry implements Serializable {
             ", fileName='" + getFileName() + "'" +
             ", fileType='" + getFileType() + "'" +
             ", fileSize=" + getFileSize() +
+            ", createdDate='" + getCreatedDate() + "'" +
+            ", lastModifiedDate='" + getLastModifiedDate() + "'" +
+            ", approvalKeyRegeneratedDays=" + getApprovalKeyRegeneratedDays() +
+            ", approvalKeyCreatedDate='" + getApprovalKeyCreatedDate() + "'" +
+            ", approvalKey='" + getApprovalKey() + "'" +
+            ", batchApprovalKey='" + getBatchApprovalKey() + "'" +
             "}";
     }
 }

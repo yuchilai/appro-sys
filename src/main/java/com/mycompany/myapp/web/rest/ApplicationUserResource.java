@@ -4,8 +4,6 @@ import com.mycompany.myapp.repository.ApplicationUserRepository;
 import com.mycompany.myapp.service.ApplicationUserService;
 import com.mycompany.myapp.service.dto.ApplicationUserDTO;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotNull;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -55,7 +53,7 @@ public class ApplicationUserResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("")
-    public ResponseEntity<ApplicationUserDTO> createApplicationUser(@Valid @RequestBody ApplicationUserDTO applicationUserDTO)
+    public ResponseEntity<ApplicationUserDTO> createApplicationUser(@RequestBody ApplicationUserDTO applicationUserDTO)
         throws URISyntaxException {
         log.debug("REST request to save ApplicationUser : {}", applicationUserDTO);
         if (applicationUserDTO.getId() != null) {
@@ -81,7 +79,7 @@ public class ApplicationUserResource {
     @PutMapping("/{id}")
     public ResponseEntity<ApplicationUserDTO> updateApplicationUser(
         @PathVariable(value = "id", required = false) final Long id,
-        @Valid @RequestBody ApplicationUserDTO applicationUserDTO
+        @RequestBody ApplicationUserDTO applicationUserDTO
     ) throws URISyntaxException {
         log.debug("REST request to update ApplicationUser : {}, {}", id, applicationUserDTO);
         if (applicationUserDTO.getId() == null) {
@@ -116,7 +114,7 @@ public class ApplicationUserResource {
     @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<ApplicationUserDTO> partialUpdateApplicationUser(
         @PathVariable(value = "id", required = false) final Long id,
-        @NotNull @RequestBody ApplicationUserDTO applicationUserDTO
+        @RequestBody ApplicationUserDTO applicationUserDTO
     ) throws URISyntaxException {
         log.debug("REST request to partial update ApplicationUser partially : {}, {}", id, applicationUserDTO);
         if (applicationUserDTO.getId() == null) {

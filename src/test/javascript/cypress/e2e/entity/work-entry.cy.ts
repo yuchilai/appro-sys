@@ -16,10 +16,10 @@ describe('WorkEntry e2e test', () => {
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
   const workEntrySample = {
-    title: 'meanwhile at atop',
+    title: 'inasmuch',
     date: '2023-12-07',
     description: 'Li4vZmFrZS1kYXRhL2Jsb2IvaGlwc3Rlci50eHQ=',
-    status: 'SUBMITTED',
+    status: 'APPROVED',
   };
 
   let workEntry;
@@ -167,8 +167,8 @@ describe('WorkEntry e2e test', () => {
     });
 
     it('should create an instance of WorkEntry', () => {
-      cy.get(`[data-cy="title"]`).type('virus');
-      cy.get(`[data-cy="title"]`).should('have.value', 'virus');
+      cy.get(`[data-cy="title"]`).type('after yuck hmph');
+      cy.get(`[data-cy="title"]`).should('have.value', 'after yuck hmph');
 
       cy.get(`[data-cy="date"]`).type('2023-12-07');
       cy.get(`[data-cy="date"]`).blur();
@@ -177,35 +177,56 @@ describe('WorkEntry e2e test', () => {
       cy.get(`[data-cy="description"]`).type('../fake-data/blob/hipster.txt');
       cy.get(`[data-cy="description"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
 
-      cy.get(`[data-cy="startTime"]`).type('2023-12-07T09:00');
+      cy.get(`[data-cy="startTime"]`).type('2023-12-06T18:20');
       cy.get(`[data-cy="startTime"]`).blur();
-      cy.get(`[data-cy="startTime"]`).should('have.value', '2023-12-07T09:00');
+      cy.get(`[data-cy="startTime"]`).should('have.value', '2023-12-06T18:20');
 
-      cy.get(`[data-cy="endTime"]`).type('2023-12-06T18:49');
+      cy.get(`[data-cy="endTime"]`).type('2023-12-07T11:30');
       cy.get(`[data-cy="endTime"]`).blur();
-      cy.get(`[data-cy="endTime"]`).should('have.value', '2023-12-06T18:49');
+      cy.get(`[data-cy="endTime"]`).should('have.value', '2023-12-07T11:30');
 
-      cy.get(`[data-cy="hours"]`).type('13368');
-      cy.get(`[data-cy="hours"]`).should('have.value', '13368');
+      cy.get(`[data-cy="hours"]`).type('32188');
+      cy.get(`[data-cy="hours"]`).should('have.value', '32188');
 
-      cy.get(`[data-cy="status"]`).select('SUBMITTED');
+      cy.get(`[data-cy="status"]`).select('APPROVED');
 
-      cy.get(`[data-cy="totalAmount"]`).type('364.09');
-      cy.get(`[data-cy="totalAmount"]`).should('have.value', '364.09');
+      cy.get(`[data-cy="totalAmount"]`).type('5954.16');
+      cy.get(`[data-cy="totalAmount"]`).should('have.value', '5954.16');
 
       cy.get(`[data-cy="comment"]`).type('../fake-data/blob/hipster.txt');
       cy.get(`[data-cy="comment"]`).invoke('val').should('match', new RegExp('../fake-data/blob/hipster.txt'));
 
       cy.setFieldImageAsBytesOfEntity('attachments', 'integration-test.png', 'image/png');
 
-      cy.get(`[data-cy="fileName"]`).type('annual');
-      cy.get(`[data-cy="fileName"]`).should('have.value', 'annual');
+      cy.get(`[data-cy="fileName"]`).type('afore but');
+      cy.get(`[data-cy="fileName"]`).should('have.value', 'afore but');
 
-      cy.get(`[data-cy="fileType"]`).type('wholly');
-      cy.get(`[data-cy="fileType"]`).should('have.value', 'wholly');
+      cy.get(`[data-cy="fileType"]`).type('beneath pfft');
+      cy.get(`[data-cy="fileType"]`).should('have.value', 'beneath pfft');
 
-      cy.get(`[data-cy="fileSize"]`).type('7934');
-      cy.get(`[data-cy="fileSize"]`).should('have.value', '7934');
+      cy.get(`[data-cy="fileSize"]`).type('4415');
+      cy.get(`[data-cy="fileSize"]`).should('have.value', '4415');
+
+      cy.get(`[data-cy="createdDate"]`).type('2023-12-07T14:12');
+      cy.get(`[data-cy="createdDate"]`).blur();
+      cy.get(`[data-cy="createdDate"]`).should('have.value', '2023-12-07T14:12');
+
+      cy.get(`[data-cy="lastModifiedDate"]`).type('2023-12-06T17:19');
+      cy.get(`[data-cy="lastModifiedDate"]`).blur();
+      cy.get(`[data-cy="lastModifiedDate"]`).should('have.value', '2023-12-06T17:19');
+
+      cy.get(`[data-cy="approvalKeyRegeneratedDays"]`).type('20056');
+      cy.get(`[data-cy="approvalKeyRegeneratedDays"]`).should('have.value', '20056');
+
+      cy.get(`[data-cy="approvalKeyCreatedDate"]`).type('2023-12-07T03:17');
+      cy.get(`[data-cy="approvalKeyCreatedDate"]`).blur();
+      cy.get(`[data-cy="approvalKeyCreatedDate"]`).should('have.value', '2023-12-07T03:17');
+
+      cy.get(`[data-cy="approvalKey"]`).type('lobotomize');
+      cy.get(`[data-cy="approvalKey"]`).should('have.value', 'lobotomize');
+
+      cy.get(`[data-cy="batchApprovalKey"]`).type('partially sheepishly dine');
+      cy.get(`[data-cy="batchApprovalKey"]`).should('have.value', 'partially sheepishly dine');
 
       // since cypress clicks submit too fast before the blob fields are validated
       cy.wait(200); // eslint-disable-line cypress/no-unnecessary-waiting

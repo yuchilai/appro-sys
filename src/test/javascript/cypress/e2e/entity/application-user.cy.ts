@@ -15,7 +15,7 @@ describe('ApplicationUser e2e test', () => {
   const applicationUserPageUrlPattern = new RegExp('/application-user(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const applicationUserSample = { invoiceGap: 4787 };
+  const applicationUserSample = {};
 
   let applicationUser;
 
@@ -162,14 +162,14 @@ describe('ApplicationUser e2e test', () => {
     });
 
     it('should create an instance of ApplicationUser', () => {
-      cy.get(`[data-cy="invoiceGap"]`).type('6473');
-      cy.get(`[data-cy="invoiceGap"]`).should('have.value', '6473');
-
-      cy.get(`[data-cy="theme"]`).select('DARK');
+      cy.get(`[data-cy="theme"]`).select('AUTO');
 
       cy.get(`[data-cy="isOnline"]`).should('not.be.checked');
       cy.get(`[data-cy="isOnline"]`).click();
       cy.get(`[data-cy="isOnline"]`).should('be.checked');
+
+      cy.get(`[data-cy="invoiceGap"]`).type('14490');
+      cy.get(`[data-cy="invoiceGap"]`).should('have.value', '14490');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

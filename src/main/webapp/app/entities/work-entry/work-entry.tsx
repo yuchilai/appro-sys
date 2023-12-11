@@ -166,6 +166,30 @@ export const WorkEntry = () => {
                   <Translate contentKey="approSysApp.workEntry.fileSize">File Size</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('fileSize')} />
                 </th>
+                <th className="hand" onClick={sort('createdDate')}>
+                  <Translate contentKey="approSysApp.workEntry.createdDate">Created Date</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('createdDate')} />
+                </th>
+                <th className="hand" onClick={sort('lastModifiedDate')}>
+                  <Translate contentKey="approSysApp.workEntry.lastModifiedDate">Last Modified Date</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('lastModifiedDate')} />
+                </th>
+                <th className="hand" onClick={sort('approvalKeyRegeneratedDays')}>
+                  <Translate contentKey="approSysApp.workEntry.approvalKeyRegeneratedDays">Approval Key Regenerated Days</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('approvalKeyRegeneratedDays')} />
+                </th>
+                <th className="hand" onClick={sort('approvalKeyCreatedDate')}>
+                  <Translate contentKey="approSysApp.workEntry.approvalKeyCreatedDate">Approval Key Created Date</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('approvalKeyCreatedDate')} />
+                </th>
+                <th className="hand" onClick={sort('approvalKey')}>
+                  <Translate contentKey="approSysApp.workEntry.approvalKey">Approval Key</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('approvalKey')} />
+                </th>
+                <th className="hand" onClick={sort('batchApprovalKey')}>
+                  <Translate contentKey="approSysApp.workEntry.batchApprovalKey">Batch Approval Key</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('batchApprovalKey')} />
+                </th>
                 <th>
                   <Translate contentKey="approSysApp.workEntry.hourlyRate">Hourly Rate</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
@@ -221,6 +245,22 @@ export const WorkEntry = () => {
                   <td>{workEntry.fileName}</td>
                   <td>{workEntry.fileType}</td>
                   <td>{workEntry.fileSize}</td>
+                  <td>
+                    {workEntry.createdDate ? <TextFormat type="date" value={workEntry.createdDate} format={APP_DATE_FORMAT} /> : null}
+                  </td>
+                  <td>
+                    {workEntry.lastModifiedDate ? (
+                      <TextFormat type="date" value={workEntry.lastModifiedDate} format={APP_DATE_FORMAT} />
+                    ) : null}
+                  </td>
+                  <td>{workEntry.approvalKeyRegeneratedDays}</td>
+                  <td>
+                    {workEntry.approvalKeyCreatedDate ? (
+                      <TextFormat type="date" value={workEntry.approvalKeyCreatedDate} format={APP_DATE_FORMAT} />
+                    ) : null}
+                  </td>
+                  <td>{workEntry.approvalKey}</td>
+                  <td>{workEntry.batchApprovalKey}</td>
                   <td>
                     {workEntry.hourlyRate ? <Link to={`/hourly-rate/${workEntry.hourlyRate.id}`}>{workEntry.hourlyRate.name}</Link> : ''}
                   </td>

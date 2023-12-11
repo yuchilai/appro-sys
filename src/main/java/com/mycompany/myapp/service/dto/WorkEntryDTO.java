@@ -51,6 +51,18 @@ public class WorkEntryDTO implements Serializable {
 
     private Long fileSize;
 
+    private Instant createdDate;
+
+    private Instant lastModifiedDate;
+
+    private Integer approvalKeyRegeneratedDays;
+
+    private Instant approvalKeyCreatedDate;
+
+    private String approvalKey;
+
+    private String batchApprovalKey;
+
     private HourlyRateDTO hourlyRate;
 
     private ProjectServiceDTO projectService;
@@ -181,6 +193,54 @@ public class WorkEntryDTO implements Serializable {
         this.fileSize = fileSize;
     }
 
+    public Instant getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Instant createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Instant getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Instant lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public Integer getApprovalKeyRegeneratedDays() {
+        return approvalKeyRegeneratedDays;
+    }
+
+    public void setApprovalKeyRegeneratedDays(Integer approvalKeyRegeneratedDays) {
+        this.approvalKeyRegeneratedDays = approvalKeyRegeneratedDays;
+    }
+
+    public Instant getApprovalKeyCreatedDate() {
+        return approvalKeyCreatedDate;
+    }
+
+    public void setApprovalKeyCreatedDate(Instant approvalKeyCreatedDate) {
+        this.approvalKeyCreatedDate = approvalKeyCreatedDate;
+    }
+
+    public String getApprovalKey() {
+        return approvalKey;
+    }
+
+    public void setApprovalKey(String approvalKey) {
+        this.approvalKey = approvalKey;
+    }
+
+    public String getBatchApprovalKey() {
+        return batchApprovalKey;
+    }
+
+    public void setBatchApprovalKey(String batchApprovalKey) {
+        this.batchApprovalKey = batchApprovalKey;
+    }
+
     public HourlyRateDTO getHourlyRate() {
         return hourlyRate;
     }
@@ -260,6 +320,12 @@ public class WorkEntryDTO implements Serializable {
             ", fileName='" + getFileName() + "'" +
             ", fileType='" + getFileType() + "'" +
             ", fileSize=" + getFileSize() +
+            ", createdDate='" + getCreatedDate() + "'" +
+            ", lastModifiedDate='" + getLastModifiedDate() + "'" +
+            ", approvalKeyRegeneratedDays=" + getApprovalKeyRegeneratedDays() +
+            ", approvalKeyCreatedDate='" + getApprovalKeyCreatedDate() + "'" +
+            ", approvalKey='" + getApprovalKey() + "'" +
+            ", batchApprovalKey='" + getBatchApprovalKey() + "'" +
             ", hourlyRate=" + getHourlyRate() +
             ", projectService=" + getProjectService() +
             ", owner=" + getOwner() +

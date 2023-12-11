@@ -126,6 +126,52 @@ export const WorkEntryDetail = () => {
           </dt>
           <dd>{workEntryEntity.fileSize}</dd>
           <dt>
+            <span id="createdDate">
+              <Translate contentKey="approSysApp.workEntry.createdDate">Created Date</Translate>
+            </span>
+          </dt>
+          <dd>
+            {workEntryEntity.createdDate ? <TextFormat value={workEntryEntity.createdDate} type="date" format={APP_DATE_FORMAT} /> : null}
+          </dd>
+          <dt>
+            <span id="lastModifiedDate">
+              <Translate contentKey="approSysApp.workEntry.lastModifiedDate">Last Modified Date</Translate>
+            </span>
+          </dt>
+          <dd>
+            {workEntryEntity.lastModifiedDate ? (
+              <TextFormat value={workEntryEntity.lastModifiedDate} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
+            <span id="approvalKeyRegeneratedDays">
+              <Translate contentKey="approSysApp.workEntry.approvalKeyRegeneratedDays">Approval Key Regenerated Days</Translate>
+            </span>
+          </dt>
+          <dd>{workEntryEntity.approvalKeyRegeneratedDays}</dd>
+          <dt>
+            <span id="approvalKeyCreatedDate">
+              <Translate contentKey="approSysApp.workEntry.approvalKeyCreatedDate">Approval Key Created Date</Translate>
+            </span>
+          </dt>
+          <dd>
+            {workEntryEntity.approvalKeyCreatedDate ? (
+              <TextFormat value={workEntryEntity.approvalKeyCreatedDate} type="date" format={APP_DATE_FORMAT} />
+            ) : null}
+          </dd>
+          <dt>
+            <span id="approvalKey">
+              <Translate contentKey="approSysApp.workEntry.approvalKey">Approval Key</Translate>
+            </span>
+          </dt>
+          <dd>{workEntryEntity.approvalKey}</dd>
+          <dt>
+            <span id="batchApprovalKey">
+              <Translate contentKey="approSysApp.workEntry.batchApprovalKey">Batch Approval Key</Translate>
+            </span>
+          </dt>
+          <dd>{workEntryEntity.batchApprovalKey}</dd>
+          <dt>
             <Translate contentKey="approSysApp.workEntry.hourlyRate">Hourly Rate</Translate>
           </dt>
           <dd>{workEntryEntity.hourlyRate ? workEntryEntity.hourlyRate.name : ''}</dd>

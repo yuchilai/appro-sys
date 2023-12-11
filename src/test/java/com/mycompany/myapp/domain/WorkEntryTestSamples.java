@@ -12,11 +12,29 @@ public class WorkEntryTestSamples {
     private static final AtomicInteger intCount = new AtomicInteger(random.nextInt() + (2 * Short.MAX_VALUE));
 
     public static WorkEntry getWorkEntrySample1() {
-        return new WorkEntry().id(1L).title("title1").hours(1).fileName("fileName1").fileType("fileType1").fileSize(1L);
+        return new WorkEntry()
+            .id(1L)
+            .title("title1")
+            .hours(1)
+            .fileName("fileName1")
+            .fileType("fileType1")
+            .fileSize(1L)
+            .approvalKeyRegeneratedDays(1)
+            .approvalKey("approvalKey1")
+            .batchApprovalKey("batchApprovalKey1");
     }
 
     public static WorkEntry getWorkEntrySample2() {
-        return new WorkEntry().id(2L).title("title2").hours(2).fileName("fileName2").fileType("fileType2").fileSize(2L);
+        return new WorkEntry()
+            .id(2L)
+            .title("title2")
+            .hours(2)
+            .fileName("fileName2")
+            .fileType("fileType2")
+            .fileSize(2L)
+            .approvalKeyRegeneratedDays(2)
+            .approvalKey("approvalKey2")
+            .batchApprovalKey("batchApprovalKey2");
     }
 
     public static WorkEntry getWorkEntryRandomSampleGenerator() {
@@ -26,6 +44,9 @@ public class WorkEntryTestSamples {
             .hours(intCount.incrementAndGet())
             .fileName(UUID.randomUUID().toString())
             .fileType(UUID.randomUUID().toString())
-            .fileSize(longCount.incrementAndGet());
+            .fileSize(longCount.incrementAndGet())
+            .approvalKeyRegeneratedDays(intCount.incrementAndGet())
+            .approvalKey(UUID.randomUUID().toString())
+            .batchApprovalKey(UUID.randomUUID().toString());
     }
 }

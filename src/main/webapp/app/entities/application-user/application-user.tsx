@@ -114,10 +114,6 @@ export const ApplicationUser = () => {
                   <Translate contentKey="approSysApp.applicationUser.id">ID</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                 </th>
-                <th className="hand" onClick={sort('invoiceGap')}>
-                  <Translate contentKey="approSysApp.applicationUser.invoiceGap">Invoice Gap</Translate>{' '}
-                  <FontAwesomeIcon icon={getSortIconByFieldName('invoiceGap')} />
-                </th>
                 <th className="hand" onClick={sort('theme')}>
                   <Translate contentKey="approSysApp.applicationUser.theme">Theme</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('theme')} />
@@ -125,6 +121,10 @@ export const ApplicationUser = () => {
                 <th className="hand" onClick={sort('isOnline')}>
                   <Translate contentKey="approSysApp.applicationUser.isOnline">Is Online</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('isOnline')} />
+                </th>
+                <th className="hand" onClick={sort('invoiceGap')}>
+                  <Translate contentKey="approSysApp.applicationUser.invoiceGap">Invoice Gap</Translate>{' '}
+                  <FontAwesomeIcon icon={getSortIconByFieldName('invoiceGap')} />
                 </th>
                 <th>
                   <Translate contentKey="approSysApp.applicationUser.internalUser">Internal User</Translate> <FontAwesomeIcon icon="sort" />
@@ -143,11 +143,11 @@ export const ApplicationUser = () => {
                       {applicationUser.id}
                     </Button>
                   </td>
-                  <td>{applicationUser.invoiceGap}</td>
                   <td>
                     <Translate contentKey={`approSysApp.THEME.${applicationUser.theme}`} />
                   </td>
                   <td>{applicationUser.isOnline ? 'true' : 'false'}</td>
+                  <td>{applicationUser.invoiceGap}</td>
                   <td>{applicationUser.internalUser ? applicationUser.internalUser.id : ''}</td>
                   <td>
                     {applicationUser.approver ? (

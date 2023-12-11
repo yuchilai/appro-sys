@@ -56,6 +56,24 @@
             <column name="file_size" type="bigint">
                 <constraints nullable="true" />
             </column>
+            <column name="created_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="last_modified_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="approval_key_regenerated_days" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="approval_key_created_date" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="approval_key" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="batch_approval_key" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
             <column name="hourly_rate_id" type="bigint">
                 <constraints nullable="true" />
             </column>
@@ -75,6 +93,9 @@
         </createTable>
         <dropDefaultValue tableName="work_entry" columnName="start_time" columnDataType="${datetimeType}"/>
         <dropDefaultValue tableName="work_entry" columnName="end_time" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="work_entry" columnName="created_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="work_entry" columnName="last_modified_date" columnDataType="${datetimeType}"/>
+        <dropDefaultValue tableName="work_entry" columnName="approval_key_created_date" columnDataType="${datetimeType}"/>
     </changeSet>
 
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
@@ -108,6 +129,12 @@
             <column name="file_name" type="string"/>
             <column name="file_type" type="string"/>
             <column name="file_size" type="numeric"/>
+            <column name="created_date" type="date"/>
+            <column name="last_modified_date" type="date"/>
+            <column name="approval_key_regenerated_days" type="numeric"/>
+            <column name="approval_key_created_date" type="date"/>
+            <column name="approval_key" type="string"/>
+            <column name="batch_approval_key" type="string"/>
             <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
         </loadData>
     </changeSet>

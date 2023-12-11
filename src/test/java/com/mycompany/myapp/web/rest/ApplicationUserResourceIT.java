@@ -32,14 +32,14 @@ import org.springframework.transaction.annotation.Transactional;
 @WithMockUser
 class ApplicationUserResourceIT {
 
-    private static final Integer DEFAULT_INVOICE_GAP = -1;
-    private static final Integer UPDATED_INVOICE_GAP = 0;
-
     private static final THEME DEFAULT_THEME = THEME.AUTO;
     private static final THEME UPDATED_THEME = THEME.DARK;
 
     private static final Boolean DEFAULT_IS_ONLINE = false;
     private static final Boolean UPDATED_IS_ONLINE = true;
+
+    private static final Integer DEFAULT_INVOICE_GAP = 1;
+    private static final Integer UPDATED_INVOICE_GAP = 2;
 
     private static final String ENTITY_API_URL = "/api/application-users";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
@@ -69,9 +69,9 @@ class ApplicationUserResourceIT {
      */
     public static ApplicationUser createEntity(EntityManager em) {
         ApplicationUser applicationUser = new ApplicationUser()
-            .invoiceGap(DEFAULT_INVOICE_GAP)
             .theme(DEFAULT_THEME)
-            .isOnline(DEFAULT_IS_ONLINE);
+            .isOnline(DEFAULT_IS_ONLINE)
+            .invoiceGap(DEFAULT_INVOICE_GAP);
         return applicationUser;
     }
 
@@ -83,9 +83,9 @@ class ApplicationUserResourceIT {
      */
     public static ApplicationUser createUpdatedEntity(EntityManager em) {
         ApplicationUser applicationUser = new ApplicationUser()
-            .invoiceGap(UPDATED_INVOICE_GAP)
             .theme(UPDATED_THEME)
-            .isOnline(UPDATED_IS_ONLINE);
+            .isOnline(UPDATED_IS_ONLINE)
+            .invoiceGap(UPDATED_INVOICE_GAP);
         return applicationUser;
     }
 
@@ -110,9 +110,9 @@ class ApplicationUserResourceIT {
         List<ApplicationUser> applicationUserList = applicationUserRepository.findAll();
         assertThat(applicationUserList).hasSize(databaseSizeBeforeCreate + 1);
         ApplicationUser testApplicationUser = applicationUserList.get(applicationUserList.size() - 1);
-        assertThat(testApplicationUser.getInvoiceGap()).isEqualTo(DEFAULT_INVOICE_GAP);
         assertThat(testApplicationUser.getTheme()).isEqualTo(DEFAULT_THEME);
         assertThat(testApplicationUser.getIsOnline()).isEqualTo(DEFAULT_IS_ONLINE);
+        assertThat(testApplicationUser.getInvoiceGap()).isEqualTo(DEFAULT_INVOICE_GAP);
     }
 
     @Test
@@ -138,26 +138,6 @@ class ApplicationUserResourceIT {
 
     @Test
     @Transactional
-    void checkInvoiceGapIsRequired() throws Exception {
-        int databaseSizeBeforeTest = applicationUserRepository.findAll().size();
-        // set the field null
-        applicationUser.setInvoiceGap(null);
-
-        // Create the ApplicationUser, which fails.
-        ApplicationUserDTO applicationUserDTO = applicationUserMapper.toDto(applicationUser);
-
-        restApplicationUserMockMvc
-            .perform(
-                post(ENTITY_API_URL).contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(applicationUserDTO))
-            )
-            .andExpect(status().isBadRequest());
-
-        List<ApplicationUser> applicationUserList = applicationUserRepository.findAll();
-        assertThat(applicationUserList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     void getAllApplicationUsers() throws Exception {
         // Initialize the database
         applicationUserRepository.saveAndFlush(applicationUser);
@@ -168,9 +148,9 @@ class ApplicationUserResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(applicationUser.getId().intValue())))
-            .andExpect(jsonPath("$.[*].invoiceGap").value(hasItem(DEFAULT_INVOICE_GAP)))
             .andExpect(jsonPath("$.[*].theme").value(hasItem(DEFAULT_THEME.toString())))
-            .andExpect(jsonPath("$.[*].isOnline").value(hasItem(DEFAULT_IS_ONLINE.booleanValue())));
+            .andExpect(jsonPath("$.[*].isOnline").value(hasItem(DEFAULT_IS_ONLINE.booleanValue())))
+            .andExpect(jsonPath("$.[*].invoiceGap").value(hasItem(DEFAULT_INVOICE_GAP)));
     }
 
     @Test
@@ -185,9 +165,9 @@ class ApplicationUserResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.id").value(applicationUser.getId().intValue()))
-            .andExpect(jsonPath("$.invoiceGap").value(DEFAULT_INVOICE_GAP))
             .andExpect(jsonPath("$.theme").value(DEFAULT_THEME.toString()))
-            .andExpect(jsonPath("$.isOnline").value(DEFAULT_IS_ONLINE.booleanValue()));
+            .andExpect(jsonPath("$.isOnline").value(DEFAULT_IS_ONLINE.booleanValue()))
+            .andExpect(jsonPath("$.invoiceGap").value(DEFAULT_INVOICE_GAP));
     }
 
     @Test
@@ -209,7 +189,7 @@ class ApplicationUserResourceIT {
         ApplicationUser updatedApplicationUser = applicationUserRepository.findById(applicationUser.getId()).orElseThrow();
         // Disconnect from session so that the updates on updatedApplicationUser are not directly saved in db
         em.detach(updatedApplicationUser);
-        updatedApplicationUser.invoiceGap(UPDATED_INVOICE_GAP).theme(UPDATED_THEME).isOnline(UPDATED_IS_ONLINE);
+        updatedApplicationUser.theme(UPDATED_THEME).isOnline(UPDATED_IS_ONLINE).invoiceGap(UPDATED_INVOICE_GAP);
         ApplicationUserDTO applicationUserDTO = applicationUserMapper.toDto(updatedApplicationUser);
 
         restApplicationUserMockMvc
@@ -224,9 +204,9 @@ class ApplicationUserResourceIT {
         List<ApplicationUser> applicationUserList = applicationUserRepository.findAll();
         assertThat(applicationUserList).hasSize(databaseSizeBeforeUpdate);
         ApplicationUser testApplicationUser = applicationUserList.get(applicationUserList.size() - 1);
-        assertThat(testApplicationUser.getInvoiceGap()).isEqualTo(UPDATED_INVOICE_GAP);
         assertThat(testApplicationUser.getTheme()).isEqualTo(UPDATED_THEME);
         assertThat(testApplicationUser.getIsOnline()).isEqualTo(UPDATED_IS_ONLINE);
+        assertThat(testApplicationUser.getInvoiceGap()).isEqualTo(UPDATED_INVOICE_GAP);
     }
 
     @Test
@@ -320,9 +300,9 @@ class ApplicationUserResourceIT {
         List<ApplicationUser> applicationUserList = applicationUserRepository.findAll();
         assertThat(applicationUserList).hasSize(databaseSizeBeforeUpdate);
         ApplicationUser testApplicationUser = applicationUserList.get(applicationUserList.size() - 1);
-        assertThat(testApplicationUser.getInvoiceGap()).isEqualTo(DEFAULT_INVOICE_GAP);
         assertThat(testApplicationUser.getTheme()).isEqualTo(DEFAULT_THEME);
         assertThat(testApplicationUser.getIsOnline()).isEqualTo(DEFAULT_IS_ONLINE);
+        assertThat(testApplicationUser.getInvoiceGap()).isEqualTo(DEFAULT_INVOICE_GAP);
     }
 
     @Test
@@ -337,7 +317,7 @@ class ApplicationUserResourceIT {
         ApplicationUser partialUpdatedApplicationUser = new ApplicationUser();
         partialUpdatedApplicationUser.setId(applicationUser.getId());
 
-        partialUpdatedApplicationUser.invoiceGap(UPDATED_INVOICE_GAP).theme(UPDATED_THEME).isOnline(UPDATED_IS_ONLINE);
+        partialUpdatedApplicationUser.theme(UPDATED_THEME).isOnline(UPDATED_IS_ONLINE).invoiceGap(UPDATED_INVOICE_GAP);
 
         restApplicationUserMockMvc
             .perform(
@@ -351,9 +331,9 @@ class ApplicationUserResourceIT {
         List<ApplicationUser> applicationUserList = applicationUserRepository.findAll();
         assertThat(applicationUserList).hasSize(databaseSizeBeforeUpdate);
         ApplicationUser testApplicationUser = applicationUserList.get(applicationUserList.size() - 1);
-        assertThat(testApplicationUser.getInvoiceGap()).isEqualTo(UPDATED_INVOICE_GAP);
         assertThat(testApplicationUser.getTheme()).isEqualTo(UPDATED_THEME);
         assertThat(testApplicationUser.getIsOnline()).isEqualTo(UPDATED_IS_ONLINE);
+        assertThat(testApplicationUser.getInvoiceGap()).isEqualTo(UPDATED_INVOICE_GAP);
     }
 
     @Test

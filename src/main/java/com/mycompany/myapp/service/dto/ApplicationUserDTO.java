@@ -1,7 +1,6 @@
 package com.mycompany.myapp.service.dto;
 
 import com.mycompany.myapp.domain.enumeration.THEME;
-import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -13,12 +12,11 @@ public class ApplicationUserDTO implements Serializable {
 
     private Long id;
 
-    @Min(value = -1)
-    private Integer invoiceGap;
-
     private THEME theme;
 
     private Boolean isOnline;
+
+    private Integer invoiceGap;
 
     private UserDTO internalUser;
 
@@ -30,14 +28,6 @@ public class ApplicationUserDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Integer getInvoiceGap() {
-        return invoiceGap;
-    }
-
-    public void setInvoiceGap(Integer invoiceGap) {
-        this.invoiceGap = invoiceGap;
     }
 
     public THEME getTheme() {
@@ -54,6 +44,14 @@ public class ApplicationUserDTO implements Serializable {
 
     public void setIsOnline(Boolean isOnline) {
         this.isOnline = isOnline;
+    }
+
+    public Integer getInvoiceGap() {
+        return invoiceGap;
+    }
+
+    public void setInvoiceGap(Integer invoiceGap) {
+        this.invoiceGap = invoiceGap;
     }
 
     public UserDTO getInternalUser() {
@@ -98,9 +96,9 @@ public class ApplicationUserDTO implements Serializable {
     public String toString() {
         return "ApplicationUserDTO{" +
             "id=" + getId() +
-            ", invoiceGap=" + getInvoiceGap() +
             ", theme='" + getTheme() + "'" +
             ", isOnline='" + getIsOnline() + "'" +
+            ", invoiceGap=" + getInvoiceGap() +
             ", internalUser=" + getInternalUser() +
             ", approver=" + getApprover() +
             "}";

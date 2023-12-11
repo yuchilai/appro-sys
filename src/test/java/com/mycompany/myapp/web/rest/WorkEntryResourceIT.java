@@ -89,6 +89,24 @@ class WorkEntryResourceIT {
     private static final Long DEFAULT_FILE_SIZE = 1L;
     private static final Long UPDATED_FILE_SIZE = 2L;
 
+    private static final Instant DEFAULT_CREATED_DATE = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_CREATED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
+    private static final Instant DEFAULT_LAST_MODIFIED_DATE = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_LAST_MODIFIED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
+    private static final Integer DEFAULT_APPROVAL_KEY_REGENERATED_DAYS = 1;
+    private static final Integer UPDATED_APPROVAL_KEY_REGENERATED_DAYS = 2;
+
+    private static final Instant DEFAULT_APPROVAL_KEY_CREATED_DATE = Instant.ofEpochMilli(0L);
+    private static final Instant UPDATED_APPROVAL_KEY_CREATED_DATE = Instant.now().truncatedTo(ChronoUnit.MILLIS);
+
+    private static final String DEFAULT_APPROVAL_KEY = "AAAAAAAAAA";
+    private static final String UPDATED_APPROVAL_KEY = "BBBBBBBBBB";
+
+    private static final String DEFAULT_BATCH_APPROVAL_KEY = "AAAAAAAAAA";
+    private static final String UPDATED_BATCH_APPROVAL_KEY = "BBBBBBBBBB";
+
     private static final String ENTITY_API_URL = "/api/work-entries";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -136,7 +154,13 @@ class WorkEntryResourceIT {
             .attachmentsContentType(DEFAULT_ATTACHMENTS_CONTENT_TYPE)
             .fileName(DEFAULT_FILE_NAME)
             .fileType(DEFAULT_FILE_TYPE)
-            .fileSize(DEFAULT_FILE_SIZE);
+            .fileSize(DEFAULT_FILE_SIZE)
+            .createdDate(DEFAULT_CREATED_DATE)
+            .lastModifiedDate(DEFAULT_LAST_MODIFIED_DATE)
+            .approvalKeyRegeneratedDays(DEFAULT_APPROVAL_KEY_REGENERATED_DAYS)
+            .approvalKeyCreatedDate(DEFAULT_APPROVAL_KEY_CREATED_DATE)
+            .approvalKey(DEFAULT_APPROVAL_KEY)
+            .batchApprovalKey(DEFAULT_BATCH_APPROVAL_KEY);
         return workEntry;
     }
 
@@ -161,7 +185,13 @@ class WorkEntryResourceIT {
             .attachmentsContentType(UPDATED_ATTACHMENTS_CONTENT_TYPE)
             .fileName(UPDATED_FILE_NAME)
             .fileType(UPDATED_FILE_TYPE)
-            .fileSize(UPDATED_FILE_SIZE);
+            .fileSize(UPDATED_FILE_SIZE)
+            .createdDate(UPDATED_CREATED_DATE)
+            .lastModifiedDate(UPDATED_LAST_MODIFIED_DATE)
+            .approvalKeyRegeneratedDays(UPDATED_APPROVAL_KEY_REGENERATED_DAYS)
+            .approvalKeyCreatedDate(UPDATED_APPROVAL_KEY_CREATED_DATE)
+            .approvalKey(UPDATED_APPROVAL_KEY)
+            .batchApprovalKey(UPDATED_BATCH_APPROVAL_KEY);
         return workEntry;
     }
 
@@ -198,6 +228,12 @@ class WorkEntryResourceIT {
         assertThat(testWorkEntry.getFileName()).isEqualTo(DEFAULT_FILE_NAME);
         assertThat(testWorkEntry.getFileType()).isEqualTo(DEFAULT_FILE_TYPE);
         assertThat(testWorkEntry.getFileSize()).isEqualTo(DEFAULT_FILE_SIZE);
+        assertThat(testWorkEntry.getCreatedDate()).isEqualTo(DEFAULT_CREATED_DATE);
+        assertThat(testWorkEntry.getLastModifiedDate()).isEqualTo(DEFAULT_LAST_MODIFIED_DATE);
+        assertThat(testWorkEntry.getApprovalKeyRegeneratedDays()).isEqualTo(DEFAULT_APPROVAL_KEY_REGENERATED_DAYS);
+        assertThat(testWorkEntry.getApprovalKeyCreatedDate()).isEqualTo(DEFAULT_APPROVAL_KEY_CREATED_DATE);
+        assertThat(testWorkEntry.getApprovalKey()).isEqualTo(DEFAULT_APPROVAL_KEY);
+        assertThat(testWorkEntry.getBatchApprovalKey()).isEqualTo(DEFAULT_BATCH_APPROVAL_KEY);
     }
 
     @Test
@@ -298,7 +334,13 @@ class WorkEntryResourceIT {
             .andExpect(jsonPath("$.[*].attachments").value(hasItem(Base64Utils.encodeToString(DEFAULT_ATTACHMENTS))))
             .andExpect(jsonPath("$.[*].fileName").value(hasItem(DEFAULT_FILE_NAME)))
             .andExpect(jsonPath("$.[*].fileType").value(hasItem(DEFAULT_FILE_TYPE)))
-            .andExpect(jsonPath("$.[*].fileSize").value(hasItem(DEFAULT_FILE_SIZE.intValue())));
+            .andExpect(jsonPath("$.[*].fileSize").value(hasItem(DEFAULT_FILE_SIZE.intValue())))
+            .andExpect(jsonPath("$.[*].createdDate").value(hasItem(DEFAULT_CREATED_DATE.toString())))
+            .andExpect(jsonPath("$.[*].lastModifiedDate").value(hasItem(DEFAULT_LAST_MODIFIED_DATE.toString())))
+            .andExpect(jsonPath("$.[*].approvalKeyRegeneratedDays").value(hasItem(DEFAULT_APPROVAL_KEY_REGENERATED_DAYS)))
+            .andExpect(jsonPath("$.[*].approvalKeyCreatedDate").value(hasItem(DEFAULT_APPROVAL_KEY_CREATED_DATE.toString())))
+            .andExpect(jsonPath("$.[*].approvalKey").value(hasItem(DEFAULT_APPROVAL_KEY)))
+            .andExpect(jsonPath("$.[*].batchApprovalKey").value(hasItem(DEFAULT_BATCH_APPROVAL_KEY)));
     }
 
     @SuppressWarnings({ "unchecked" })
@@ -343,7 +385,13 @@ class WorkEntryResourceIT {
             .andExpect(jsonPath("$.attachments").value(Base64Utils.encodeToString(DEFAULT_ATTACHMENTS)))
             .andExpect(jsonPath("$.fileName").value(DEFAULT_FILE_NAME))
             .andExpect(jsonPath("$.fileType").value(DEFAULT_FILE_TYPE))
-            .andExpect(jsonPath("$.fileSize").value(DEFAULT_FILE_SIZE.intValue()));
+            .andExpect(jsonPath("$.fileSize").value(DEFAULT_FILE_SIZE.intValue()))
+            .andExpect(jsonPath("$.createdDate").value(DEFAULT_CREATED_DATE.toString()))
+            .andExpect(jsonPath("$.lastModifiedDate").value(DEFAULT_LAST_MODIFIED_DATE.toString()))
+            .andExpect(jsonPath("$.approvalKeyRegeneratedDays").value(DEFAULT_APPROVAL_KEY_REGENERATED_DAYS))
+            .andExpect(jsonPath("$.approvalKeyCreatedDate").value(DEFAULT_APPROVAL_KEY_CREATED_DATE.toString()))
+            .andExpect(jsonPath("$.approvalKey").value(DEFAULT_APPROVAL_KEY))
+            .andExpect(jsonPath("$.batchApprovalKey").value(DEFAULT_BATCH_APPROVAL_KEY));
     }
 
     @Test
@@ -379,7 +427,13 @@ class WorkEntryResourceIT {
             .attachmentsContentType(UPDATED_ATTACHMENTS_CONTENT_TYPE)
             .fileName(UPDATED_FILE_NAME)
             .fileType(UPDATED_FILE_TYPE)
-            .fileSize(UPDATED_FILE_SIZE);
+            .fileSize(UPDATED_FILE_SIZE)
+            .createdDate(UPDATED_CREATED_DATE)
+            .lastModifiedDate(UPDATED_LAST_MODIFIED_DATE)
+            .approvalKeyRegeneratedDays(UPDATED_APPROVAL_KEY_REGENERATED_DAYS)
+            .approvalKeyCreatedDate(UPDATED_APPROVAL_KEY_CREATED_DATE)
+            .approvalKey(UPDATED_APPROVAL_KEY)
+            .batchApprovalKey(UPDATED_BATCH_APPROVAL_KEY);
         WorkEntryDTO workEntryDTO = workEntryMapper.toDto(updatedWorkEntry);
 
         restWorkEntryMockMvc
@@ -408,6 +462,12 @@ class WorkEntryResourceIT {
         assertThat(testWorkEntry.getFileName()).isEqualTo(UPDATED_FILE_NAME);
         assertThat(testWorkEntry.getFileType()).isEqualTo(UPDATED_FILE_TYPE);
         assertThat(testWorkEntry.getFileSize()).isEqualTo(UPDATED_FILE_SIZE);
+        assertThat(testWorkEntry.getCreatedDate()).isEqualTo(UPDATED_CREATED_DATE);
+        assertThat(testWorkEntry.getLastModifiedDate()).isEqualTo(UPDATED_LAST_MODIFIED_DATE);
+        assertThat(testWorkEntry.getApprovalKeyRegeneratedDays()).isEqualTo(UPDATED_APPROVAL_KEY_REGENERATED_DAYS);
+        assertThat(testWorkEntry.getApprovalKeyCreatedDate()).isEqualTo(UPDATED_APPROVAL_KEY_CREATED_DATE);
+        assertThat(testWorkEntry.getApprovalKey()).isEqualTo(UPDATED_APPROVAL_KEY);
+        assertThat(testWorkEntry.getBatchApprovalKey()).isEqualTo(UPDATED_BATCH_APPROVAL_KEY);
     }
 
     @Test
@@ -494,7 +554,10 @@ class WorkEntryResourceIT {
             .hours(UPDATED_HOURS)
             .fileName(UPDATED_FILE_NAME)
             .fileType(UPDATED_FILE_TYPE)
-            .fileSize(UPDATED_FILE_SIZE);
+            .fileSize(UPDATED_FILE_SIZE)
+            .createdDate(UPDATED_CREATED_DATE)
+            .lastModifiedDate(UPDATED_LAST_MODIFIED_DATE)
+            .approvalKeyCreatedDate(UPDATED_APPROVAL_KEY_CREATED_DATE);
 
         restWorkEntryMockMvc
             .perform(
@@ -522,6 +585,12 @@ class WorkEntryResourceIT {
         assertThat(testWorkEntry.getFileName()).isEqualTo(UPDATED_FILE_NAME);
         assertThat(testWorkEntry.getFileType()).isEqualTo(UPDATED_FILE_TYPE);
         assertThat(testWorkEntry.getFileSize()).isEqualTo(UPDATED_FILE_SIZE);
+        assertThat(testWorkEntry.getCreatedDate()).isEqualTo(UPDATED_CREATED_DATE);
+        assertThat(testWorkEntry.getLastModifiedDate()).isEqualTo(UPDATED_LAST_MODIFIED_DATE);
+        assertThat(testWorkEntry.getApprovalKeyRegeneratedDays()).isEqualTo(DEFAULT_APPROVAL_KEY_REGENERATED_DAYS);
+        assertThat(testWorkEntry.getApprovalKeyCreatedDate()).isEqualTo(UPDATED_APPROVAL_KEY_CREATED_DATE);
+        assertThat(testWorkEntry.getApprovalKey()).isEqualTo(DEFAULT_APPROVAL_KEY);
+        assertThat(testWorkEntry.getBatchApprovalKey()).isEqualTo(DEFAULT_BATCH_APPROVAL_KEY);
     }
 
     @Test
@@ -550,7 +619,13 @@ class WorkEntryResourceIT {
             .attachmentsContentType(UPDATED_ATTACHMENTS_CONTENT_TYPE)
             .fileName(UPDATED_FILE_NAME)
             .fileType(UPDATED_FILE_TYPE)
-            .fileSize(UPDATED_FILE_SIZE);
+            .fileSize(UPDATED_FILE_SIZE)
+            .createdDate(UPDATED_CREATED_DATE)
+            .lastModifiedDate(UPDATED_LAST_MODIFIED_DATE)
+            .approvalKeyRegeneratedDays(UPDATED_APPROVAL_KEY_REGENERATED_DAYS)
+            .approvalKeyCreatedDate(UPDATED_APPROVAL_KEY_CREATED_DATE)
+            .approvalKey(UPDATED_APPROVAL_KEY)
+            .batchApprovalKey(UPDATED_BATCH_APPROVAL_KEY);
 
         restWorkEntryMockMvc
             .perform(
@@ -578,6 +653,12 @@ class WorkEntryResourceIT {
         assertThat(testWorkEntry.getFileName()).isEqualTo(UPDATED_FILE_NAME);
         assertThat(testWorkEntry.getFileType()).isEqualTo(UPDATED_FILE_TYPE);
         assertThat(testWorkEntry.getFileSize()).isEqualTo(UPDATED_FILE_SIZE);
+        assertThat(testWorkEntry.getCreatedDate()).isEqualTo(UPDATED_CREATED_DATE);
+        assertThat(testWorkEntry.getLastModifiedDate()).isEqualTo(UPDATED_LAST_MODIFIED_DATE);
+        assertThat(testWorkEntry.getApprovalKeyRegeneratedDays()).isEqualTo(UPDATED_APPROVAL_KEY_REGENERATED_DAYS);
+        assertThat(testWorkEntry.getApprovalKeyCreatedDate()).isEqualTo(UPDATED_APPROVAL_KEY_CREATED_DATE);
+        assertThat(testWorkEntry.getApprovalKey()).isEqualTo(UPDATED_APPROVAL_KEY);
+        assertThat(testWorkEntry.getBatchApprovalKey()).isEqualTo(UPDATED_BATCH_APPROVAL_KEY);
     }
 
     @Test

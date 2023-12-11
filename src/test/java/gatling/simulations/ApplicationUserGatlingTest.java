@@ -74,7 +74,7 @@ public class ApplicationUserGatlingTest extends Simulation {
                     http("Create new applicationUser")
                         .post("/api/application-users")
                         .headers(headers_http_authenticated)
-                        .body(StringBody("{" + "\"invoiceGap\": 0" + ", \"theme\": \"AUTO\"" + ", \"isOnline\": null" + "}"))
+                        .body(StringBody("{" + "\"theme\": \"AUTO\"" + ", \"isOnline\": null" + ", \"invoiceGap\": 0" + "}"))
                         .asJson()
                         .check(status().is(201))
                         .check(headerRegex("Location", "(.*)").saveAs("new_applicationUser_url"))

@@ -89,6 +89,12 @@ export const WorkEntryUpdate = () => {
     if (values.fileSize !== undefined && typeof values.fileSize !== 'number') {
       values.fileSize = Number(values.fileSize);
     }
+    values.createdDate = convertDateTimeToServer(values.createdDate);
+    values.lastModifiedDate = convertDateTimeToServer(values.lastModifiedDate);
+    if (values.approvalKeyRegeneratedDays !== undefined && typeof values.approvalKeyRegeneratedDays !== 'number') {
+      values.approvalKeyRegeneratedDays = Number(values.approvalKeyRegeneratedDays);
+    }
+    values.approvalKeyCreatedDate = convertDateTimeToServer(values.approvalKeyCreatedDate);
 
     const entity = {
       ...workEntryEntity,
@@ -112,12 +118,18 @@ export const WorkEntryUpdate = () => {
       ? {
           startTime: displayDefaultDateTime(),
           endTime: displayDefaultDateTime(),
+          createdDate: displayDefaultDateTime(),
+          lastModifiedDate: displayDefaultDateTime(),
+          approvalKeyCreatedDate: displayDefaultDateTime(),
         }
       : {
           status: 'SUBMITTED',
           ...workEntryEntity,
           startTime: convertDateTimeFromServer(workEntryEntity.startTime),
           endTime: convertDateTimeFromServer(workEntryEntity.endTime),
+          createdDate: convertDateTimeFromServer(workEntryEntity.createdDate),
+          lastModifiedDate: convertDateTimeFromServer(workEntryEntity.lastModifiedDate),
+          approvalKeyCreatedDate: convertDateTimeFromServer(workEntryEntity.approvalKeyCreatedDate),
           hourlyRate: workEntryEntity?.hourlyRate?.id,
           projectService: workEntryEntity?.projectService?.id,
           owner: workEntryEntity?.owner?.id,
@@ -260,6 +272,51 @@ export const WorkEntryUpdate = () => {
                 id="work-entry-fileSize"
                 name="fileSize"
                 data-cy="fileSize"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('approSysApp.workEntry.createdDate')}
+                id="work-entry-createdDate"
+                name="createdDate"
+                data-cy="createdDate"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+              />
+              <ValidatedField
+                label={translate('approSysApp.workEntry.lastModifiedDate')}
+                id="work-entry-lastModifiedDate"
+                name="lastModifiedDate"
+                data-cy="lastModifiedDate"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+              />
+              <ValidatedField
+                label={translate('approSysApp.workEntry.approvalKeyRegeneratedDays')}
+                id="work-entry-approvalKeyRegeneratedDays"
+                name="approvalKeyRegeneratedDays"
+                data-cy="approvalKeyRegeneratedDays"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('approSysApp.workEntry.approvalKeyCreatedDate')}
+                id="work-entry-approvalKeyCreatedDate"
+                name="approvalKeyCreatedDate"
+                data-cy="approvalKeyCreatedDate"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+              />
+              <ValidatedField
+                label={translate('approSysApp.workEntry.approvalKey')}
+                id="work-entry-approvalKey"
+                name="approvalKey"
+                data-cy="approvalKey"
+                type="text"
+              />
+              <ValidatedField
+                label={translate('approSysApp.workEntry.batchApprovalKey')}
+                id="work-entry-batchApprovalKey"
+                name="batchApprovalKey"
+                data-cy="batchApprovalKey"
                 type="text"
               />
               <ValidatedField
