@@ -2,20 +2,20 @@
   "approSysApp": {
     "workEntry": {
       "home": {
-        "title": "Work Entries",
+        "title": "Work Schedules",
         "refreshListLabel": "Refrescar lista",
-        "createLabel": "Crear nuevo Work Entry",
-        "createOrEditLabel": "Crear o editar Work Entry",
+        "createLabel": "Crear nuevo Work Schedule",
+        "createOrEditLabel": "Crear o editar Work Schedule",
         "notFound": "Ningún Work Entries encontrado"
       },
-      "created": "Un nuevo Work Entry ha sido creado con el identificador {{ param }}",
-      "updated": "Un Work Entry ha sido actualizado con el identificador {{ param }}",
-      "deleted": "Un Work Entry ha sido eliminado con el identificador {{ param }}",
+      "created": "Un nuevo Work Schedule ha sido creado con el identificador {{ param }}",
+      "updated": "Un Work Schedule ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Work Schedule ha sido eliminado con el identificador {{ param }}",
       "delete": {
-        "question": "¿Seguro que quiere eliminar Work Entry {{ id }}?"
+        "question": "¿Seguro que quiere eliminar Work Schedule {{ id }}?"
       },
       "detail": {
-        "title": "Work Entry"
+        "title": "Work Schedule"
       },
       "id": "ID",
       "title": "Title",

@@ -2,20 +2,20 @@
   "approSysApp": {
     "workEntry": {
       "home": {
-        "title": "Work Entries",
+        "title": "Work Schedules",
         "refreshListLabel": "Refresh list",
-        "createLabel": "Create a new Work Entry",
-        "createOrEditLabel": "Create or edit a Work Entry",
-        "notFound": "No Work Entries found"
+        "createLabel": "Create a new Work Schedule",
+        "createOrEditLabel": "Create or edit a Work Schedule",
+        "notFound": "No Work Schedule found"
       },
-      "created": "A new Work Entry is created with identifier {{ param }}",
-      "updated": "A Work Entry is updated with identifier {{ param }}",
-      "deleted": "A Work Entry is deleted with identifier {{ param }}",
+      "created": "A new Work Schedule is created with identifier {{ param }}",
+      "updated": "A Work Schedule is updated with identifier {{ param }}",
+      "deleted": "A Work Schedule is deleted with identifier {{ param }}",
       "delete": {
-        "question": "Are you sure you want to delete Work Entry {{ id }}?"
+        "question": "Are you sure you want to delete Work Schedule {{ id }}?"
       },
       "detail": {
-        "title": "Work Entry"
+        "title": "Work Schedule"
       },
       "id": "ID",
       "title": "Title",

@@ -2,20 +2,20 @@
   "approSysApp": {
     "workEntry": {
       "home": {
-        "title": "Work Entries",
+        "title": "Work Schedules",
         "refreshListLabel": "Refresh list",
-        "createLabel": "建立一筆新的 Work Entry",
-        "createOrEditLabel": "建立或編輯 Work Entry",
+        "createLabel": "建立一筆新的 Work Schedule",
+        "createOrEditLabel": "建立或編輯 Work Schedule",
         "notFound": "No Work Entries found"
       },
-      "created": "新的 Work Entry 建立成功，識別碼為 {{ param }}",
-      "updated": "識別碼為 {{ param }} 的 Work Entry 更新成功",
-      "deleted": "識別碼為 {{ param }} 的 Work Entry 刪除成功",
+      "created": "新的 Work Schedule 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Work Schedule 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Work Schedule 刪除成功",
       "delete": {
-        "question": "您確定要刪除 Work Entry {{ id }} 嗎?"
+        "question": "您確定要刪除 Work Schedule {{ id }} 嗎?"
       },
       "detail": {
-        "title": "Work Entry"
+        "title": "Work Schedule"
       },
       "id": "ID",
       "title": "Title",

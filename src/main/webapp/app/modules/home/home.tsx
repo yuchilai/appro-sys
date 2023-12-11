@@ -74,25 +74,44 @@ export const Home = () => {
               <Clock />
             </h2>
           </Col>
-          <Col md="4">
-            <Card>
-              <Button tag={Link} to="/address" size="lg" replace color="info" data-cy="">
-                <FontAwesomeIcon icon="briefcase" />{' '}
-                <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
-                </span>
-              </Button>
-            </Card>
-          </Col>
-          <Col md="4">
-            <Card>
-              <Button tag={Link} to="/address" size="lg" replace color="info" data-cy="">
-                <FontAwesomeIcon icon="briefcase" />{' '}
-                <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
-                </span>
-              </Button>
-            </Card>
+          <Col md="8">
+            <h2 className="d-flex justify-content-center" id="work-entry-heading" data-cy="">
+              <Translate contentKey="approSysApp.workEntry.home.title">Work Schedules</Translate>
+            </h2>
+            <Row>
+              <Col md="6">
+                <Card>
+                  <Button tag={Link} to="/application-user" size="lg" replace color="primary" outline className="mb-3" data-cy="">
+                    <FontAwesomeIcon icon="user-tie" />{' '}
+                    <span className="d-none d-md-inline">
+                      <Translate contentKey="approSysApp.applicationUser.home.title">Application User</Translate>
+                    </span>
+                  </Button>
+                  <Button tag={Link} to="/client-company" size="lg" replace color="primary" outline className="mb-3" data-cy="">
+                    <FontAwesomeIcon icon="building" />{' '}
+                    <span className="d-none d-md-inline">
+                      <Translate contentKey="approSysApp.clientCompany.home.title">Company</Translate>
+                    </span>
+                  </Button>
+                </Card>
+              </Col>
+              <Col md="6">
+                <Card>
+                  <Button tag={Link} to="/work-entry" size="lg" replace color="secondary" outline className="mb-3" data-cy="">
+                    <FontAwesomeIcon icon="calendar-days" />{' '}
+                    <span className="d-none d-md-inline">
+                      <Translate contentKey="approSysApp.workEntry.home.title">Work Schedules</Translate>
+                    </span>
+                  </Button>
+                  <Button tag={Link} to="/invoice" size="lg" replace color="secondary" outline className="mb-3" data-cy="">
+                    <FontAwesomeIcon icon="file-invoice-dollar" />{' '}
+                    <span className="d-none d-md-inline">
+                      <Translate contentKey="approSysApp.invoice.home.title">Invoices</Translate>
+                    </span>
+                  </Button>
+                </Card>
+              </Col>
+            </Row>
           </Col>
         </Row>
       )}
