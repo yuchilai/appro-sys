@@ -66,7 +66,7 @@ export const Home = () => {
         </Row>
       ) : (
         <Row>
-          <Col md="4" className="pad">
+          <Col md="3" className="pad">
             <h1 className="display-5">
               <Translate contentKey="home.welcome">Welcome</Translate> {account.login}
             </h1>
@@ -74,9 +74,9 @@ export const Home = () => {
               <Clock />
             </h2>
           </Col>
-          <Col md="8">
-            <h2 className="d-flex justify-content-center" id="work-entry-heading" data-cy="">
-              <Translate contentKey="approSysApp.workEntry.home.title">Work Schedules</Translate>
+          <Col md="9">
+            <h2 className="d-flex justify-content-center display-1" id="home-control-pannel" data-cy="">
+              <Translate contentKey="home.controlPannel">Control Pannel</Translate>
             </h2>
             <Row>
               <Col md="6">
