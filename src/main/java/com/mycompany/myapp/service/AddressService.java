@@ -55,4 +55,12 @@ public interface AddressService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * Get the "id" applicationUser.
+     *
+     * @param id the id of the applicationUser entity.
+     * @return the list of entities.
+     */
+    Page<AddressDTO> findAllByApplicationUserId(Long applicationUserId, Pageable pageable);
 }

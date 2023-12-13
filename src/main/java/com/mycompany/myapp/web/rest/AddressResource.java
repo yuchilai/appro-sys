@@ -1,8 +1,11 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.repository.AddressRepository;
+import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.service.AddressService;
+import com.mycompany.myapp.service.ApplicationUserService;
 import com.mycompany.myapp.service.dto.AddressDTO;
+import com.mycompany.myapp.service.dto.ApplicationUserDTO;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
@@ -42,16 +45,25 @@ public class AddressResource {
 
     private final AddressRepository addressRepository;
 
-    public AddressResource(AddressService addressService, AddressRepository addressRepository) {
+    private final ApplicationUserService applicationUserService;
+
+    public AddressResource(
+        AddressService addressService,
+        AddressRepository addressRepository,
+        ApplicationUserService applicationUserService
+    ) {
         this.addressService = addressService;
         this.addressRepository = addressRepository;
+        this.applicationUserService = applicationUserService;
     }
 
     /**
      * {@code POST  /addresses} : Create a new address.
      *
      * @param addressDTO the addressDTO to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new addressDTO, or with status {@code 400 (Bad Request)} if the address has already an ID.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with
+     *         body the new addressDTO, or with status {@code 400 (Bad Request)} if
+     *         the address has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("")
@@ -70,11 +82,14 @@ public class AddressResource {
     /**
      * {@code PUT  /addresses/:id} : Updates an existing address.
      *
-     * @param id the id of the addressDTO to save.
+     * @param id         the id of the addressDTO to save.
      * @param addressDTO the addressDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated addressDTO,
-     * or with status {@code 400 (Bad Request)} if the addressDTO is not valid,
-     * or with status {@code 500 (Internal Server Error)} if the addressDTO couldn't be updated.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body
+     *         the updated addressDTO,
+     *         or with status {@code 400 (Bad Request)} if the addressDTO is not
+     *         valid,
+     *         or with status {@code 500 (Internal Server Error)} if the addressDTO
+     *         couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/{id}")
@@ -102,14 +117,19 @@ public class AddressResource {
     }
 
     /**
-     * {@code PATCH  /addresses/:id} : Partial updates given fields of an existing address, field will ignore if it is null
+     * {@code PATCH  /addresses/:id} : Partial updates given fields of an existing
+     * address, field will ignore if it is null
      *
-     * @param id the id of the addressDTO to save.
+     * @param id         the id of the addressDTO to save.
      * @param addressDTO the addressDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated addressDTO,
-     * or with status {@code 400 (Bad Request)} if the addressDTO is not valid,
-     * or with status {@code 404 (Not Found)} if the addressDTO is not found,
-     * or with status {@code 500 (Internal Server Error)} if the addressDTO couldn't be updated.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body
+     *         the updated addressDTO,
+     *         or with status {@code 400 (Bad Request)} if the addressDTO is not
+     *         valid,
+     *         or with status {@code 404 (Not Found)} if the addressDTO is not
+     *         found,
+     *         or with status {@code 500 (Internal Server Error)} if the addressDTO
+     *         couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
@@ -141,21 +161,36 @@ public class AddressResource {
      * {@code GET  /addresses} : get all the addresses.
      *
      * @param pageable the pagination information.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of addresses in body.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list
+     *         of addresses in body.
      */
     @GetMapping("")
     public ResponseEntity<List<AddressDTO>> getAllAddresses(@org.springdoc.core.annotations.ParameterObject Pageable pageable) {
         log.debug("REST request to get a page of Addresses");
-        Page<AddressDTO> page = addressService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
+        boolean isAdmin = SecurityUtils.hasCurrentUserThisAuthority("ROLE_ADMIN");
+        if (isAdmin) {
+            log.debug(ENTITY_NAME + "getAllAddresses isAdmin ~~~~~~~~~~~~~~~~~~~");
+            Page<AddressDTO> page = addressService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+            return ResponseEntity.ok().headers(headers).body(page.getContent());
+        } else {
+            log.debug(ENTITY_NAME + "getAllAddresses isNotAdmin~~~~~~~~~~~~~~~~~");
+            Long applicationUserId = applicationUserService
+                .findOneByLogin(SecurityUtils.getCurrentUserLogin().get().toString())
+                .get()
+                .getId();
+            Page<AddressDTO> page = addressService.findAllByApplicationUserId(applicationUserId, pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+            return ResponseEntity.ok().headers(headers).body(page.getContent());
+        }
     }
 
     /**
      * {@code GET  /addresses/:id} : get the "id" address.
      *
      * @param id the id of the addressDTO to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the addressDTO, or with status {@code 404 (Not Found)}.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body
+     *         the addressDTO, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/{id}")
     public ResponseEntity<AddressDTO> getAddress(@PathVariable Long id) {

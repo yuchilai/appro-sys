@@ -55,4 +55,12 @@ public interface ApplicationUserService {
      * @param id the id of the entity.
      */
     void delete(Long id);
+
+    /**
+     * Get the "login" applicationUser.
+     *
+     * @param login the login of the entity.
+     * @return the entity.
+     */
+    Optional<ApplicationUserDTO> findOneByLogin(String login);
 }

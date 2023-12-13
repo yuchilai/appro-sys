@@ -81,4 +81,10 @@ public class AddressServiceImpl implements AddressService {
         log.debug("Request to delete Address : {}", id);
         addressRepository.deleteById(id);
     }
+
+    @Override
+    public Page<AddressDTO> findAllByApplicationUserId(Long applicationUserId, Pageable pageable) {
+        log.debug("Request to get own Addresses");
+        return addressRepository.findAllByApplicationUserId(applicationUserId, pageable).map(addressMapper::toDto);
+    }
 }

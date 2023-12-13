@@ -1,11 +1,13 @@
 package com.mycompany.myapp.web.rest;
 
 import com.mycompany.myapp.repository.ApplicationUserRepository;
+import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.service.ApplicationUserService;
 import com.mycompany.myapp.service.dto.ApplicationUserDTO;
 import com.mycompany.myapp.web.rest.errors.BadRequestAlertException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -13,8 +15,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -23,7 +27,8 @@ import tech.jhipster.web.util.PaginationUtil;
 import tech.jhipster.web.util.ResponseUtil;
 
 /**
- * REST controller for managing {@link com.mycompany.myapp.domain.ApplicationUser}.
+ * REST controller for managing
+ * {@link com.mycompany.myapp.domain.ApplicationUser}.
  */
 @RestController
 @RequestMapping("/api/application-users")
@@ -49,7 +54,9 @@ public class ApplicationUserResource {
      * {@code POST  /application-users} : Create a new applicationUser.
      *
      * @param applicationUserDTO the applicationUserDTO to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new applicationUserDTO, or with status {@code 400 (Bad Request)} if the applicationUser has already an ID.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with
+     *         body the new applicationUserDTO, or with status
+     *         {@code 400 (Bad Request)} if the applicationUser has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("")
@@ -69,11 +76,14 @@ public class ApplicationUserResource {
     /**
      * {@code PUT  /application-users/:id} : Updates an existing applicationUser.
      *
-     * @param id the id of the applicationUserDTO to save.
+     * @param id                 the id of the applicationUserDTO to save.
      * @param applicationUserDTO the applicationUserDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated applicationUserDTO,
-     * or with status {@code 400 (Bad Request)} if the applicationUserDTO is not valid,
-     * or with status {@code 500 (Internal Server Error)} if the applicationUserDTO couldn't be updated.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body
+     *         the updated applicationUserDTO,
+     *         or with status {@code 400 (Bad Request)} if the applicationUserDTO is
+     *         not valid,
+     *         or with status {@code 500 (Internal Server Error)} if the
+     *         applicationUserDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/{id}")
@@ -101,14 +111,19 @@ public class ApplicationUserResource {
     }
 
     /**
-     * {@code PATCH  /application-users/:id} : Partial updates given fields of an existing applicationUser, field will ignore if it is null
+     * {@code PATCH  /application-users/:id} : Partial updates given fields of an
+     * existing applicationUser, field will ignore if it is null
      *
-     * @param id the id of the applicationUserDTO to save.
+     * @param id                 the id of the applicationUserDTO to save.
      * @param applicationUserDTO the applicationUserDTO to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated applicationUserDTO,
-     * or with status {@code 400 (Bad Request)} if the applicationUserDTO is not valid,
-     * or with status {@code 404 (Not Found)} if the applicationUserDTO is not found,
-     * or with status {@code 500 (Internal Server Error)} if the applicationUserDTO couldn't be updated.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body
+     *         the updated applicationUserDTO,
+     *         or with status {@code 400 (Bad Request)} if the applicationUserDTO is
+     *         not valid,
+     *         or with status {@code 404 (Not Found)} if the applicationUserDTO is
+     *         not found,
+     *         or with status {@code 500 (Internal Server Error)} if the
+     *         applicationUserDTO couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
@@ -140,23 +155,43 @@ public class ApplicationUserResource {
      * {@code GET  /application-users} : get all the applicationUsers.
      *
      * @param pageable the pagination information.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of applicationUsers in body.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list
+     *         of applicationUsers in body.
      */
     @GetMapping("")
     public ResponseEntity<List<ApplicationUserDTO>> getAllApplicationUsers(
         @org.springdoc.core.annotations.ParameterObject Pageable pageable
     ) {
         log.debug("REST request to get a page of ApplicationUsers");
-        Page<ApplicationUserDTO> page = applicationUserService.findAll(pageable);
-        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
-        return ResponseEntity.ok().headers(headers).body(page.getContent());
+        boolean isAdmin = SecurityUtils.hasCurrentUserThisAuthority("ROLE_ADMIN");
+        if (isAdmin) {
+            Page<ApplicationUserDTO> page = applicationUserService.findAll(pageable);
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+            return ResponseEntity.ok().headers(headers).body(page.getContent());
+        } else {
+            Optional<ApplicationUserDTO> applicationUserDTO = applicationUserService.findOneByLogin(
+                SecurityUtils.getCurrentUserLogin().get().toString()
+            );
+
+            return applicationUserDTO
+                .map(userDTO -> {
+                    List<ApplicationUserDTO> singleItemList = Collections.singletonList(userDTO);
+                    HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(
+                        ServletUriComponentsBuilder.fromCurrentRequest(),
+                        new PageImpl<>(singleItemList, pageable, 1)
+                    );
+                    return new ResponseEntity<>(singleItemList, headers, HttpStatus.OK);
+                })
+                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
+        }
     }
 
     /**
      * {@code GET  /application-users/:id} : get the "id" applicationUser.
      *
      * @param id the id of the applicationUserDTO to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the applicationUserDTO, or with status {@code 404 (Not Found)}.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body
+     *         the applicationUserDTO, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/{id}")
     public ResponseEntity<ApplicationUserDTO> getApplicationUser(@PathVariable Long id) {

@@ -81,4 +81,11 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
         log.debug("Request to delete ApplicationUser : {}", id);
         applicationUserRepository.deleteById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Optional<ApplicationUserDTO> findOneByLogin(String login) {
+        log.debug("Request to get own ApplicationUser : {}", login);
+        return applicationUserRepository.findOneByInternalUserLogin(login).map(applicationUserMapper::toDto);
+    }
 }
