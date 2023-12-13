@@ -173,16 +173,14 @@ public class ApplicationUserResource {
                 SecurityUtils.getCurrentUserLogin().get().toString()
             );
 
-            return applicationUserDTO
-                .map(userDTO -> {
-                    List<ApplicationUserDTO> singleItemList = Collections.singletonList(userDTO);
-                    HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(
-                        ServletUriComponentsBuilder.fromCurrentRequest(),
-                        new PageImpl<>(singleItemList, pageable, 1)
-                    );
-                    return new ResponseEntity<>(singleItemList, headers, HttpStatus.OK);
-                })
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.NO_CONTENT));
+            List<ApplicationUserDTO> userList = applicationUserDTO.map(Collections::singletonList).orElseGet(Collections::emptyList);
+
+            HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(
+                ServletUriComponentsBuilder.fromCurrentRequest(),
+                new PageImpl<>(userList, pageable, userList.size())
+            );
+
+            return new ResponseEntity<>(userList, headers, HttpStatus.OK);
         }
     }
 
